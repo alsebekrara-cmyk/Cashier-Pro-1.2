@@ -1,0 +1,3366 @@
+  <style>
+  /* جعل جميع الخطوط والنصوص متوسطة وواضحة في جميع العناصر والجداول والصفحات */
+  body, html, table, th, td, input, select, button, label, .form-control, .modal, .cart, .product-card, .details-section, .detail-row, .info-row, .product-header, .product-name, .product-category, .product-actions, .empty-state {
+      font-size: 1.08em !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.2px;
+  }
+
+  /* تكبير الأرقام في الجداول والعناصر */
+  .table td, .table th, .product-card .info-value, .cart .item-qty, .cart .item-price, .detail-value, .stock, .price {
+      font-size: 1.18em !important;
+      font-weight: 800 !important;
+  }
+
+  /* تكبير عناوين الجداول والصفحات */
+  h1, h2, h3, h4, h5, h6, .modal-title, .page-title {
+      font-size: 2em !important;
+      font-weight: 900 !important;
+  }
+
+  /* تحسين خطوط الشريط الجانبي */
+  .sidebar, .sidebar-menu, .sidebar .menu-item, .sidebar .menu-link {
+      font-size: 1.22em !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.5px;
+  }
+
+  /* تكبير عناصر الشريط الجانبي مع الحفاظ على التنسيق */
+  .nav-menu {
+      font-size: 1.25rem !important; /* زيادة حجم الخط الأساسي */
+      font-family: 'Tajawal', 'Cairo', 'Segoe UI', Arial, sans-serif !important;
+  }
+  .nav-section-title {
+      font-size: 1.35rem !important;
+      font-weight: bold !important;
+      margin-bottom: 0.5em !important;
+      letter-spacing: 0.5px;
+  }
+  .nav-item {
+      margin-bottom: 0.25em !important;
+  }
+  .nav-link {
+      font-size: 1.18rem !important;
+      font-weight: 500 !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.5em 0.75em !important;
+      border-radius: 8px !important;
+      transition: background 0.2s;
+  }
+  .nav-link.active,
+  .nav-link:hover {
+      background: #f3f4f6 !important;
+      color: #0f172a !important;
+  }
+  .nav-icon {
+      font-size: 1.5em !important;
+      min-width: 1.5em;
+      text-align: center;
+  }
+  .nav-text {
+      font-size: 1.15em !important;
+      font-weight: 500 !important;
+  }
+  /* عناصر الحماية وتسجيل الخروج */
+  #securityNavItem .nav-link,
+  #logoutNavItem .nav-link {
+      font-size: 1.18rem !important;
+      font-weight: 600 !important;
+  }
+
+  /* تحسين خطوط السلة */
+  .cart, .cart-list, .cart-item, .cart .item-name, .cart .item-qty, .cart .item-price {
+      font-size: 1.08em !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.2px;
+  }
+  </style>
+  <!-- تكبير عناصر شريط الإحصائيات العلوي (top-bar-stats) -->
+  <style>
+  /* تكبير عناصر شريط الإحصائيات العلوي (top-bar-stats) */
+  .top-bar-stats, .top-bar-stats .quick-stat-card {
+      min-height: 70px;
+  }
+  .top-bar-stats .quick-stat-card {
+      padding: 0.7em 1.2em !important;
+      border-radius: 12px !important;
+      margin: 0 0.3em !important;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+  }
+
+  /* --- تخصيص عرض المنتجات داخل السلة --- */
+.cart-items {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.7em 0.5em !important;
+}
+.cart-item {
+  min-width: 0;
+  max-width: 100%;
+  font-size: 0.97rem !important;
+  padding: 0.45em 0.5em !important;
+  margin-bottom: 0.3em !important;
+}
+.cart-item .item-header h4,
+.cart-item .item-info h4 {
+  font-size: 1em !important;
+}
+.cart-item .item-price,
+.cart-item .item-total {
+  font-size: 0.98em !important;
+}
+.cart-item .quantity-controls {
+  font-size: 0.97em !important;
+}
+/* --- تكبير نصوص المجموع الفرعي والخصم والضريبة والمجموع النهائي والأرقام والدينار --- */
+.cart-summary .summary-row span:first-child {
+  font-size: 1.18em !important;
+  font-weight: 600 !important;
+}
+.cart-summary .summary-value {
+  font-size: 1.25em !important;
+  font-weight: bold !important;
+  color: #0d9488 !important;
+  letter-spacing: 0.5px;
+}
+.cart-summary .total .summary-value {
+  font-size: 1.35em !important;
+  color: #d97706 !important;
+}
+.cart-summary .total span:first-child {
+  font-size: 1.22em !important;
+  color: #d97706 !important;
+}
+.cart-summary .summary-value {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+  .top-bar-stats .quick-stat-icon {
+      font-size: 2.1em !important;
+      width: 2.2em;
+      height: 2.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .top-bar-stats .quick-stat-label {
+      font-size: 1.18em !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.2px;
+  }
+  .top-bar-stats .quick-stat-value {
+      font-size: 1.35em !important;
+      font-weight: 900 !important;
+      margin-top: 0.1em;
+  }
+  /* تكبير الساعة الرقمية */
+  .top-bar-stats .digital-clock-card {
+      min-width: 170px;
+      padding: 0.7em 1.2em !important;
+  }
+  .top-bar-stats .digital-clock .clock-time {
+      font-size: 1.45em !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.2px;
+  }
+  .top-bar-stats .digital-clock .clock-date {
+      font-size: 1.08em !important;
+      font-weight: 700 !important;
+  }
+
+
+  /* ========================================
+   حالة الدفع الجزئي - Partial Payment
+   ======================================== */
+
+.installment-status.partially_paid {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+/* معلومات الترحيل - Carryforward Info */
+.carryforward-info {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.carryforward-info i {
+    color: #f59e0b;
+    margin-left: 8px;
+}
+
+/* تحسين عرض المبالغ المرحلة */
+.amount-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.amount-breakdown .original {
+    color: #6b7280;
+    font-size: 0.85em;
+}
+
+.amount-breakdown .carryforward {
+    color: #f59e0b;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.amount-breakdown .total {
+    font-weight: bold;
+    color: #1f2937;
+}
+  </style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body data-theme="dark">
+  <!-- شريط العنوان المخصص -->
+  <div class="custom-titlebar">
+   <div class="titlebar-left">
+    <div class="titlebar-controls">
+    <button class="titlebar-btn close" title="إغلاق" onclick="window.electronAPI.windowClose()">
+     <i class="fas fa-times"></i>
+    </button>
+    <button class="titlebar-btn maximize" title="تكبير">
+     <i class="fas fa-window-maximize"></i>
+    </button>
+    <button class="titlebar-btn minimize" title="تصغير" onclick="window.electronAPI.windowMinimize()">
+     <i class="fas fa-window-minimize"></i>
+    </button>
+    </div>
+    <button class="titlebar-refresh" onclick="refreshApp()" title="تحديث الواجهة">
+     <i class="fas fa-sync-alt"></i>
+     <span>تحديث</span>
+    </button>
+    <button class="titlebar-refresh" onclick="toggleThemeQuick()" title="تبديل المظهر" style="margin-right: 0.5rem;">
+     <i class="fas fa-palette"></i>
+     <span>الثيم</span>
+    </button>
+   </div>
+   
+   <div class="titlebar-center">
+    <div class="titlebar-logo">💼</div>
+    <span class="titlebar-title">نظام نقاط البيع المتقدم - شركة الإبداع الرقمي</span>
+    <div class="titlebar-clock">
+     <i class="fas fa-clock"></i>
+     <span id="titlebarClock">00:00:00</span>
+    </div>
+   </div>
+   
+    <div class="titlebar-right">
+    </div>
+  </div>
+  
+  <!-- شاشة التحميل -->
+  <div id="appLoader" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--theme-bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease;
+  ">
+    <div style="text-align: center;">
+      <div style="
+        width: 80px;
+        height: 80px;
+        border: 4px solid rgba(99, 102, 241, 0.3);
+        border-top: 4px solid #6366f1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      "></div>
+      <h2 style="color: var(--theme-text-primary); margin-bottom: 10px;">جارٍ تحميل التطبيق...</h2>
+      <p id="loaderStatus" style="color: var(--theme-text-secondary); font-size: 14px;">تهيئة النظام</p>
+    </div>
+  </div>
+  
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  
+  <div class="animated-bg"></div>
+  <div class="app-container"><!-- الشريط الجانبي -->
+   <nav class="sidebar" id="sidebar"><button class="sidebar-toggle" id="sidebarToggle"> <i class="fas fa-angle-double-right"></i> </button>
+        <!-- مربع البحث في الشريط الجانبي (يظهر للمستخدمين فقط) -->
+        <div id="sidebarSearchBoxWrapper" style="display:none; padding: 10px 16px 0 16px;">
+            <div class="search-box" style="margin-bottom: 10px;">
+                <input type="text" class="search-input" placeholder="ابحث في القوائم..." id="sidebarSearchInput" onkeyup="filterSidebarNavItems()">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    <div class="nav-menu">
+     <div class="nav-section">
+    <div class="nav-section-title">المبيعات</div>
+    <div class="nav-item" id="posNavItem"><a class="nav-link active" onclick="showPage('pos')"> <i class="fas fa-cash-register nav-icon"></i> <span class="nav-text">نقطة البيع</span> </a></div>
+    <div class="nav-item" id="invoicesNavItem"><a class="nav-link" onclick="showPage('invoices')"> <i class="fas fa-receipt nav-icon"></i> <span class="nav-text">الفواتير</span> </a></div>
+    <div class="nav-item" id="receiptsManagementNavItem"><a class="nav-link" onclick="showPage('receiptsManagement')"> <i class="fas fa-file-invoice-dollar nav-icon"></i> <span class="nav-text">إدارة الإيصالات</span> </a></div>
+     </div>
+     <div class="nav-section">
+    <div class="nav-section-title">المخزون</div>
+    <div class="nav-item" id="productsNavItem"><a class="nav-link" onclick="showPage('products')"> <i class="fas fa-boxes nav-icon"></i> <span class="nav-text">إدارة المنتجات</span> </a></div>
+    <div class="nav-item" id="inventoryNavItem"><a class="nav-link" onclick="showPage('inventory')"> <i class="fas fa-warehouse nav-icon"></i> <span class="nav-text">إدارة المخزن</span> </a></div>
+     </div>
+     <div class="nav-section">
+    <div class="nav-section-title">المالية</div>
+    <div class="nav-item" id="debtsNavItem"><a class="nav-link" onclick="showPage('debts')"> <i class="fas fa-credit-card nav-icon"></i> <span class="nav-text">إدارة الديون</span> </a></div>
+    <div class="nav-item" id="paymentsNavItem"><a class="nav-link" onclick="showPage('payments')"> <i class="fas fa-hand-holding-usd nav-icon"></i> <span class="nav-text">التسديدات</span> </a></div>
+    <div class="nav-item" id="expensesNavItem"><a class="nav-link" onclick="showPage('expenses')"> <i class="fas fa-money-bill-wave nav-icon"></i> <span class="nav-text">إدارة المصاريف</span> </a></div>
+     </div>
+        <div class="nav-item" id="reportsNavItem"><a class="nav-link" onclick="window.reportsManager && window.reportsManager.openReportsModal ? window.reportsManager.openReportsModal() : alert('تعذر تحميل نظام التقارير')"> <i class="fas fa-chart-bar nav-icon"></i> <span class="nav-text">التقارير</span> </a></div>
+     <div class="nav-section">
+    <div class="nav-section-title">النظام</div>
+    <div class="nav-item" id="printerNavItem"><a class="nav-link" onclick="showPage('printer')"> <i class="fas fa-print nav-icon"></i> <span class="nav-text">إدارة الطابعة</span> </a></div>
+    <div class="nav-item" id="settingsNavItem"><a class="nav-link" onclick="showPage('settings')"> <i class="fas fa-cog nav-icon"></i> <span class="nav-text">الإعدادات العامة</span> </a></div>
+    <!-- <div class="nav-item" id="systemManagementNavItem">
+        <a class="nav-link" onclick="openSystemManagement()" style="cursor: pointer;">
+            <i class="fas fa-tools nav-icon" style="color:#f59e0b"></i>
+            <span class="nav-text">إدارة النظام والإصلاح</span>
+        </a>
+    </div> -->
+     </div>
+            <div class="nav-item" id="securityNavItem" style="display:none">
+                <a class="nav-link" onclick="window.securityManager && window.securityManager.openSecurityPanel ? window.securityManager.openSecurityPanel() : alert('تعذر تحميل نظام الحماية')">
+                    <i class="fas fa-shield-alt nav-icon" style="color:#ef4444"></i>
+                    <span class="nav-text">نظام الحماية والصلاحيات</span>
+                </a>
+            </div>
+            <div class="nav-item" id="logoutNavItem" style="display:none">
+                <a class="nav-link" onclick="window.securityManager && window.securityManager.logout ? window.securityManager.logout() : alert('تعذر تسجيل الخروج')">
+                    <i class="fas fa-sign-out-alt nav-icon" style="color:#ef4444"></i>
+                    <span class="nav-text">تسجيل الخروج</span>
+                </a>
+            </div>
+    <script>
+    // دالة مركزية لتطبيق الصلاحيات على الشريط الجانبي
+    window.applyPermissionVisibility = function() {
+        const map = [
+            {id: 'posNavItem', perm: 'sales_view'},
+            {id: 'invoicesNavItem', perm: 'sales_view'},
+            {id: 'productsNavItem', perm: 'products_view'},
+            {id: 'inventoryNavItem', perm: 'inventory_view'},
+            {id: 'debtsNavItem', perm: 'debts_view'},
+            {id: 'paymentsNavItem', perm: 'debts_view'},
+            {id: 'expensesNavItem', perm: 'settings_view'},
+            {id: 'reportsNavItem', perm: 'reports_view'},
+            {id: 'printerNavItem', perm: 'settings_view'},
+            {id: 'settingsNavItem', perm: 'settings_view'}
+        ];
+        if (!window.securityManager) return;
+        // إظهار أو إخفاء عناصر الشريط الجانبي حسب صلاحيات المستخدم
+        map.forEach(item => {
+            const el = document.getElementById(item.id);
+            if (el) {
+                if (window.securityManager.hasPermission(item.perm)) {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            }
+        });
+        // زر الحماية وزر تسجيل الخروج يتم التحكم بهما من updateSidebarButtons
+
+        // إظهار مربع البحث في الشريط الجانبي للمستخدمين فقط (وليس الأدمن/المدير)
+        const searchBoxWrapper = document.getElementById('sidebarSearchBoxWrapper');
+        if (searchBoxWrapper) {
+            const user = window.securityManager.currentUser;
+            if (user && user.role && user.role !== 'admin' && user.role !== 'manager') {
+                searchBoxWrapper.style.display = '';
+            } else {
+                searchBoxWrapper.style.display = 'none';
+                // إعادة تعيين البحث عند الإخفاء
+                const input = document.getElementById('sidebarSearchInput');
+                if (input) input.value = '';
+                if (typeof filterSidebarNavItems === 'function') filterSidebarNavItems();
+            }
+        }
+        // إعادة تطبيق الفلترة بعد تغيير الصلاحيات
+        if (typeof filterSidebarNavItems === 'function') filterSidebarNavItems();
+    };
+        // دالة فلترة عناصر الشريط الجانبي بناءً على البحث
+        window.filterSidebarNavItems = function() {
+            const input = document.getElementById('sidebarSearchInput');
+            const filter = input ? input.value.trim() : '';
+            const navItems = document.querySelectorAll('.nav-menu .nav-item');
+            if (!input || !navItems) return;
+            navItems.forEach(item => {
+                // تجاهل عناصر الحماية/تسجيل الخروج
+                if (item.id === 'securityNavItem' || item.id === 'logoutNavItem') return;
+                // تحقق من صلاحية المستخدم لهذا العنصر
+                let perm = null;
+                switch(item.id) {
+                    case 'posNavItem': perm = 'sales_view'; break;
+                    case 'invoicesNavItem': perm = 'sales_view'; break;
+                    case 'productsNavItem': perm = 'products_view'; break;
+                    case 'inventoryNavItem': perm = 'inventory_view'; break;
+                    case 'debtsNavItem': perm = 'debts_view'; break;
+                    case 'paymentsNavItem': perm = 'debts_view'; break;
+                    case 'expensesNavItem': perm = 'settings_view'; break;
+                    case 'reportsNavItem': perm = 'reports_view'; break;
+                    case 'printerNavItem': perm = 'settings_view'; break;
+                    case 'settingsNavItem': perm = 'settings_view'; break;
+                }
+                const hasPerm = perm ? (window.securityManager && window.securityManager.hasPermission(perm)) : true;
+                const text = item.innerText || '';
+                if (hasPerm && (!filter || text.includes(filter))) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        };
+    // استدعِ الدالة بعد تسجيل الدخول/الخروج
+    if (window.securityManager) {
+        const origLogin = window.securityManager.handleLogin;
+        window.securityManager.handleLogin = function() {
+            const res = origLogin.apply(this, arguments);
+            window.applyPermissionVisibility();
+            return res;
+        };
+        const origLogout = window.securityManager.logout;
+        window.securityManager.logout = function() {
+            const res = origLogout.apply(this, arguments);
+            window.applyPermissionVisibility();
+            return res;
+        };
+        window.addEventListener('DOMContentLoaded', window.applyPermissionVisibility);
+    }
+    </script>
+    </div>
+   </nav><!-- المحتوى الرئيسي -->
+   <main class="main-content"><!-- الشريط العلوي -->
+    <div class="top-bar">
+     <h1 class="page-title" id="currentPageTitle">نقطة البيع</h1>
+     
+     <!-- الإحصائيات والساعة في الشريط العلوي -->
+     <div class="top-bar-stats">
+        <!-- الساعة الرقمية -->
+        <div class="quick-stat-card digital-clock-card">
+          <div class="digital-clock">
+            <div class="clock-time" id="digitalClockTime">00:44:03</div>
+            <div class="clock-date">
+              <span id="digitalClockDay">الخميس</span>
+              <span id="digitalClockDate">7 نوفمبر 2025</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- الإحصائيات -->
+        <div class="quick-stat-card">
+          <div class="quick-stat-icon products-icon">
+            <i class="fas fa-boxes"></i>
+          </div>
+          <div class="quick-stat-info">
+            <div class="quick-stat-label">عدد المنتجات</div>
+            <div class="quick-stat-value" id="quickTotalProducts">28</div>
+          </div>
+        </div>
+        
+        <div class="quick-stat-card">
+          <div class="quick-stat-icon value-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="quick-stat-info">
+            <div class="quick-stat-label">قيمة المخزون</div>
+            <div class="quick-stat-value" id="quickTotalValue">223,830 د</div>
+          </div>
+        </div>
+        
+        <div class="quick-stat-card">
+          <div class="quick-stat-icon debts-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <div class="quick-stat-info">
+            <div class="quick-stat-label">عدد الديون</div>
+            <div class="quick-stat-value" id="quickDebtsCount">0</div>
+          </div>
+        </div>
+        
+        <div class="quick-stat-card">
+          <div class="quick-stat-icon debtors-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="quick-stat-info">
+            <div class="quick-stat-label">المديونين</div>
+            <div class="quick-stat-value" id="quickDebtorsCount">0</div>
+          </div>
+        </div>
+        
+        <div class="quick-stat-card">
+          <div class="quick-stat-icon debt-value-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <div class="quick-stat-info">
+            <div class="quick-stat-label">قيمة الديون</div>
+            <div class="quick-stat-value" id="quickDebtsValue">0 دينار</div>
+          </div>
+        </div>
+     </div>
+     
+         <div class="top-actions">
+            <div class="search-box">
+                    <input type="text" class="search-input" placeholder="ابحث في النظام..." id="globalSearchInput" onkeyup="handleGlobalSearch(event)"> 
+                    <i class="fas fa-search search-icon"></i>
+                    <div id="searchResults" class="search-results"></div>
+            </div>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"> <i class="fas fa-moon"></i> </button>
+         </div>
+    </div><!-- محتوى الصفحات -->
+    <div class="page-content"><!-- صفحة نقطة البيع -->
+     <div id="pos" class="page active">
+      <!-- الإحصائيات السريعة موجودة الآن في الشريط العلوي -->
+      <div class="pos-layout">
+       <div class="products-section">
+        <div class="section-header">
+         <div class="section-title"><i class="fas fa-shopping-bag"></i> المنتجات المتاحة
+         </div>
+         <div class="pos-search-box">
+             <i class="fas fa-search"></i>
+             <input type="text" id="posSearchInput" class="pos-search-input" placeholder="ابحث عن منتج..." onkeyup="filterPOSProducts()">
+         </div>
+        </div>
+        <div class="category-filters" id="categoryFilters">
+         <div class="category-btn active" data-category="all"><i class="fas fa-th-large"></i> الكل
+         </div>
+        </div>
+        <div class="products-grid" id="productsGrid"><!-- المنتجات ستظهر هنا -->
+        </div>
+       </div>
+       <div class="cart-section">
+        <div class="success-message" id="successMessage"><i class="fas fa-check-circle"></i> تم إتمام البيع بنجاح! 🎉
+        </div>
+        
+        <!-- ✅ زر مبيعات اليوم -->
+        <button class="btn btn-info" onclick="showTodaySalesReport()" style="width:100%;margin-bottom:0.8rem;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border:none;padding:0.7rem;font-size:0.95rem;font-weight:700;">
+          <i class="fas fa-file-invoice-dollar"></i> 
+          <span>مبيعات اليوم</span>
+          <i class="fas fa-chart-line" style="margin-left:0.5rem;"></i>
+        </button>
+        
+        <div class="cart-header">
+          <i class="fas fa-shopping-cart"></i> 
+          <span class="cart-title">سلة المشتريات</span>
+          <div class="cart-badge-info">
+            <div class="cart-mini-stat">
+              <i class="fas fa-boxes"></i>
+              <span id="cartItemsCount">0</span>
+            </div>
+            <div class="cart-mini-stat total-price">
+              <i class="fas fa-dollar-sign"></i>
+              <span id="cartTotalPrice">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="cart-items" id="cartItems">
+         <div class="cart-empty"><i class="fas fa-shopping-cart"></i>
+          <p>السلة فارغة</p><small>اختر المنتجات لإضافتها</small>
+         </div>
+        </div>
+        <div class="cart-summary">
+         <div class="discount-section"><input type="number" class="discount-input" id="discountInput" placeholder="خصم (%)">
+         </div>
+         <div class="summary-row"><span>المجموع الفرعي:</span> <span class="summary-value" id="subtotal">0 دينار</span>
+         </div>
+         <div class="summary-row"><span>الخصم:</span> <span class="summary-value" id="discountAmount">0 دينار</span>
+         </div>
+         <div class="summary-row"><span>الضريبة (<span id="taxRate">0</span>%):</span> <span class="summary-value" id="taxAmount">0 دينار</span>
+         </div>
+         <div class="summary-row total"><span>المجموع النهائي:</span> <span class="summary-value" id="finalTotal">0 دينار</span>
+         </div>
+         <div class="payment-actions">
+          <button class="payment-action-btn cash-btn" id="cashPaymentBtn" disabled>
+            <i class="fas fa-money-bill-wave"></i>
+            <span>دفع نقدي</span>
+          </button>
+          <button class="payment-action-btn installment-btn" id="installmentPaymentBtn" disabled>
+            <i class="fas fa-calendar-alt"></i>
+            <span>دفع بالأقساط</span>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- صفحة إدارة المنتجات -->
+     <div id="products" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-boxes"></i> إدارة المنتجات
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="productsSearchInput" class="pos-search-input" placeholder="ابحث في المنتجات..." onkeyup="filterProducts()">
+       </div>
+       <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <div class="export-import-buttons">
+            <button class="export-btn" onclick="if(window.securityManager.checkPermission('products_export')) exportData('products', 'json')" data-permission="products_export"> <i class="fas fa-download"></i> JSON </button> 
+            <button class="export-btn" onclick="if(window.securityManager.checkPermission('products_export')) exportData('products', 'excel')" data-permission="products_export"> <i class="fas fa-file-excel"></i> Excel </button> 
+            <button class="export-btn" onclick="if(window.securityManager.checkPermission('products_export')) exportData('products', 'pdf')" data-permission="products_export"> <i class="fas fa-file-pdf"></i> PDF </button> 
+            <input type="file" id="importProductsFile" accept=".json,.xlsx,.csv" style="display: none;" onchange="if(window.securityManager.checkPermission('products_import')) importData('products')"> 
+            <button class="import-btn" onclick="if(window.securityManager.checkPermission('products_import')) document.getElementById('importProductsFile').click()" data-permission="products_import"> <i class="fas fa-upload"></i> استيراد </button>
+        </div>
+        <button class="btn btn-secondary" onclick="if(window.securityManager.checkPermission('products_add_category')) showAddCategoryModal()" data-permission="products_add_category"> <i class="fas fa-plus"></i> إضافة تصنيف </button> 
+        <button class="btn btn-primary" onclick="if(window.securityManager.checkPermission('products_add')) showAddProductModal()" data-permission="products_add"> <i class="fas fa-plus"></i> إضافة منتج جديد </button>
+       </div>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-boxes"></i>
+        </div>
+        <div class="stat-value" id="totalProducts">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي المنتجات
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="stat-value" id="totalValue">
+         0
+        </div>
+        <div class="stat-label">
+         قيمة المخزون
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="stat-value" id="lowStockItems">
+         0
+        </div>
+        <div class="stat-label">
+         منتجات قليلة المخزون
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-tags"></i>
+        </div>
+        <div class="stat-value" id="totalCategories">
+         0
+        </div>
+        <div class="stat-label">
+         عدد التصنيفات
+        </div>
+       </div>
+      </div>
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-barcode"></i> الباركود</th>
+          <th><i class="fas fa-tag"></i> اسم المنتج</th>
+          <th><i class="fas fa-layer-group"></i> التصنيف</th>
+          <th><i class="fas fa-money-bill"></i> سعر البيع</th>
+          <th><i class="fas fa-coins"></i> سعر التكلفة</th>
+          <th><i class="fas fa-warehouse"></i> المخزون</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="productsTableBody"><!-- المنتجات ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div><!-- صفحة إدارة المخزن -->
+     <div id="inventory" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-warehouse"></i> إدارة المخزن
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="inventorySearchInput" class="pos-search-input" placeholder="ابحث في المخزون..." onkeyup="filterInventory()">
+       </div>
+       <div class="export-import-buttons">
+           <button class="export-btn" onclick="printInventoryReport()"> <i class="fas fa-print"></i> طباعة </button>
+           <button class="export-btn" onclick="exportData('inventory', 'json')"> <i class="fas fa-download"></i> JSON </button> 
+           <button class="export-btn" onclick="exportData('inventory', 'excel')"> <i class="fas fa-file-excel"></i> Excel </button> 
+           <button class="export-btn" onclick="exportData('inventory', 'pdf')"> <i class="fas fa-file-pdf"></i> PDF </button> 
+           <input type="file" id="importInventoryFile" accept=".json,.xlsx,.csv" style="display: none;" onchange="importData('inventory')"> 
+           <button class="import-btn" onclick="document.getElementById('importInventoryFile').click()"> <i class="fas fa-upload"></i> استيراد </button>
+       </div>
+      </div>
+      
+      <div class="filters-section" style="margin-bottom: 1.5rem;">
+       <div class="filters-grid">
+        <div class="form-group"><label class="form-label">فلترة حسب التصنيف</label> <select class="form-select" id="inventoryCategory"> <option value="all">جميع التصنيفات</option> </select>
+        </div>
+        <div class="form-group"><label class="form-label">حالة المخزون</label> <select class="form-select" id="stockStatus"> <option value="all">جميع الحالات</option> <option value="in-stock">متوفر</option> <option value="low-stock">مخزون قليل</option> <option value="out-of-stock">نفد المخزون</option> </select>
+        </div>
+       </div>
+      </div>
+      <div class="stats-grid">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-value" id="totalProfit">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الربح المتوقع
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chart-pie"></i>
+        </div>
+        <div class="stat-value" id="totalCost">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي التكلفة
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-balance-scale"></i>
+        </div>
+        <div class="stat-value" id="profitMargin">
+         0%
+        </div>
+        <div class="stat-label">
+         هامش الربح
+        </div>
+       </div>
+      </div>
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-tag"></i> المنتج</th>
+          <th><i class="fas fa-layer-group"></i> التصنيف</th>
+          <th><i class="fas fa-warehouse"></i> الكمية</th>
+          <th><i class="fas fa-coins"></i> التكلفة الإجمالية</th>
+          <th><i class="fas fa-money-bill"></i> القيمة المتوقعة</th>
+          <th><i class="fas fa-chart-line"></i> الربح المتوقع</th>
+          <th><i class="fas fa-info-circle"></i> الحالة</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="inventoryTableBody"><!-- بيانات المخزن ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div><!-- صفحة الفواتير -->
+     <div id="invoices" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-receipt"></i> إدارة الفواتير
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="invoicesSearchInput" class="pos-search-input" placeholder="ابحث في الفواتير..." onkeyup="filterInvoices()">
+       </div>
+       <div class="export-import-buttons">
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'json')" data-permission="reports_export"> <i class="fas fa-download"></i> JSON </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'excel')" data-permission="reports_export"> <i class="fas fa-file-excel"></i> Excel </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'pdf')" data-permission="reports_export"> <i class="fas fa-file-pdf"></i> PDF </button> 
+           <input type="file" id="importInvoicesFile" accept=".json,.xlsx,.csv" style="display: none;" onchange="importData('invoices')"> 
+           <button class="import-btn" onclick="document.getElementById('importInvoicesFile').click()" data-permission="settings_restore" style="display: none;"> <i class="fas fa-upload"></i> استيراد </button>
+       </div>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-receipt"></i>
+        </div>
+        <div class="stat-value" id="totalInvoices">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الفواتير
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-value" id="totalSales">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي المبيعات
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-day"></i>
+        </div>
+        <div class="stat-value" id="todaySales">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات اليوم
+        </div>
+       </div>
+      </div>
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-hashtag"></i> رقم الفاتورة</th>
+          <th><i class="fas fa-calendar"></i> التاريخ</th>
+          <th><i class="fas fa-user"></i> العميل</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ</th>
+          <th><i class="fas fa-credit-card"></i> طريقة الدفع</th>
+          <th><i class="fas fa-user-tag"></i> المستخدم</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="invoicesTableBody"><!-- الفواتير ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div><!-- صفحة إدارة الديون -->
+     
+     <!-- ✅ صفحة إدارة الإيصالات -->
+     <div id="receiptsManagement" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-file-invoice-dollar"></i> إدارة الإيصالات
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="receiptsSearchInput" class="pos-search-input" placeholder="ابحث في الإيصالات..." onkeyup="filterReceipts()">
+       </div>
+       <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <div class="export-import-buttons">
+            <button class="export-btn" onclick="exportData('receipts', 'json')"> <i class="fas fa-download"></i> JSON </button> 
+            <button class="export-btn" onclick="exportData('receipts', 'excel')"> <i class="fas fa-file-excel"></i> Excel </button> 
+            <button class="export-btn" onclick="exportData('receipts', 'pdf')"> <i class="fas fa-file-pdf"></i> PDF </button> 
+        </div>
+        <select id="receiptsDateFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع التواريخ</option>
+          <option value="today">اليوم</option>
+          <option value="yesterday">الأمس</option>
+          <option value="thisWeek">هذا الأسبوع</option>
+          <option value="thisMonth">هذا الشهر</option>
+          <option value="custom">تاريخ مخصص</option>
+        </select>
+        <select id="receiptsTypeFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع الأنواع</option>
+          <option value="نقدي">نقدي</option>
+          <option value="أقساط">أقساط</option>
+        </select>
+        <select id="receiptsUserFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع المستخدمين</option>
+        </select>
+        <button class="btn btn-primary" onclick="mergeReceipts()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+          <i class="fas fa-compress-alt"></i> دمج إيصالات اليوم
+        </button>
+       </div>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-file-invoice"></i>
+        </div>
+        <div class="stat-value" id="totalReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الإيصالات
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"><i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-value" id="totalCashReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات نقدي
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="stat-value" id="totalInstallmentReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات أقساط
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 90%, #2BFF88 100%);"><i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="stat-value" id="totalReceiptsAmount">
+         0
+        </div>
+        <div class="stat-label">
+         الدخل الإجمالي
+        </div>
+       </div>
+      </div>
+      
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-hashtag"></i> رقم الإيصال</th>
+          <th><i class="fas fa-calendar"></i> التاريخ</th>
+          <th><i class="fas fa-clock"></i> الوقت</th>
+          <th><i class="fas fa-user"></i> العميل</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ</th>
+          <th><i class="fas fa-credit-card"></i> النوع</th>
+          <th><i class="fas fa-user-tag"></i> المستخدم</th>
+          <th><i class="fas fa-layer-group"></i> مدمج</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="receiptsTableBody"><!-- الإيصالات ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div>
+     
+     <div id="debts" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-credit-card"></i> إدارة الديون والأقساط
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="debtsSearchInput" class="pos-search-input" placeholder="ابحث في الديون..." onkeyup="filterDebts()">
+       </div>
+       <div class="export-import-buttons">
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportData('debts', 'json')" data-permission="debts_export"> <i class="fas fa-download"></i> JSON </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportData('debts', 'excel')" data-permission="debts_export"> <i class="fas fa-file-excel"></i> Excel </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportData('debts', 'pdf')" data-permission="debts_export"> <i class="fas fa-file-pdf"></i> PDF </button> 
+           <input type="file" id="importDebtsFile" accept=".json,.xlsx,.csv" style="display: none;" onchange="importData('debts')"> 
+           <button class="import-btn" onclick="document.getElementById('importDebtsFile').click()" data-permission="settings_restore" style="display: none;"> <i class="fas fa-upload"></i> استيراد </button>
+       </div>
+       <button class="btn btn-primary" onclick="showAddManualDebtModal()" style="margin-right: 1rem;"> <i class="fas fa-plus"></i> إضافة دين جديد </button>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card" onclick="filterDebtsByStatus('all')" style="cursor: pointer;" title="عرض جميع الديون">
+        <div class="stat-icon"><i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-value" id="totalDebts">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الديون
+        </div>
+       </div>
+       <div class="stat-card" onclick="filterDebtsByStatus('active')" style="cursor: pointer;" title="عرض الديون النشطة">
+        <div class="stat-icon"><i class="fas fa-users"></i>
+        </div>
+        <div class="stat-value" id="debtCustomers">
+         0
+        </div>
+        <div class="stat-label">
+         عدد العملاء
+        </div>
+       </div>
+       <div class="stat-card" onclick="filterDebtsByStatus('overdue')" style="cursor: pointer;" title="عرض الديون المتأخرة">
+        <div class="stat-icon"><i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="stat-value" id="overdueDebts">
+         0
+        </div>
+        <div class="stat-label">
+         ديون متأخرة
+        </div>
+       </div>
+       <div class="stat-card" onclick="filterDebtsByStatus('paid')" style="cursor: pointer;" title="عرض الديون المسددة">
+        <div class="stat-icon"><i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-value" id="paidDebts">
+         0
+        </div>
+        <div class="stat-label">
+         ديون مسددة
+        </div>
+       </div>
+      </div>
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-user"></i> اسم العميل</th>
+          <th><i class="fas fa-phone"></i> رقم الهاتف</th>
+          <th><i class="fas fa-money-bill-wave"></i> المبلغ المدفوع</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ المتبقي</th>
+          <th><i class="fas fa-calendar-alt"></i> القسط الشهري</th>
+          <th><i class="fas fa-calendar"></i> تاريخ الاستحقاق</th>
+          <th><i class="fas fa-info-circle"></i> الحالة</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="debtsTableBody"><!-- الديون ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div><!-- صفحة تفاصيل الدين الكاملة -->
+     <div id="debtDetailsPage" class="page">
+      <div class="section-header">
+       <div class="section-title">
+        <button class="btn btn-secondary" onclick="navigateTo('debts')" style="margin-left: 10px;">
+         <i class="fas fa-arrow-right"></i> رجوع
+        </button>
+        <i class="fas fa-user-circle"></i> تفاصيل دين العميل
+       </div>
+      </div>
+      
+      <!-- معلومات العميل -->
+      <div class="stats-grid" id="debtCustomerInfo">
+       <!-- ستظهر معلومات العميل هنا -->
+      </div>
+      
+      <!-- ملخص الدين -->
+      <div class="stat-card" id="debtSummaryCard" style="margin: 20px 0; padding: 30px;">
+       <!-- ملخص الدين -->
+      </div>
+      
+      <!-- الفاتورة الأصلية -->
+      <div class="card" style="margin: 20px 0;">
+       <h3 style="margin-bottom: 20px; color: var(--primary-color);"><i class="fas fa-file-invoice"></i> الفاتورة الأصلية</h3>
+       <div id="debtInvoiceDetails">
+        <!-- تفاصيل الفاتورة -->
+       </div>
+      </div>
+      
+      <!-- جدول الأقساط الشهرية -->
+      <div class="card" style="margin: 20px 0;">
+       <h3 style="margin-bottom: 20px; color: var(--primary-color);"><i class="fas fa-calendar-alt"></i> جدول الأقساط الشهرية</h3>
+       <div class="table-container">
+        <table class="table">
+         <thead>
+          <tr>
+           <th><i class="fas fa-hashtag"></i> الشهر</th>
+           <th><i class="fas fa-calendar"></i> تاريخ الاستحقاق</th>
+           <th><i class="fas fa-money-bill"></i> المبلغ المستحق</th>
+           <th><i class="fas fa-check-circle"></i> الحالة</th>
+           <th><i class="fas fa-calendar-check"></i> تاريخ الدفع</th>
+           <th><i class="fas fa-cogs"></i> الإجراءات</th>
+          </tr>
+         </thead>
+         <tbody id="installmentsTableBody">
+          <!-- الأقساط ستظهر هنا -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      
+      <!-- سجل التسديدات -->
+      <div class="card" style="margin: 20px 0;">
+       <h3 style="margin-bottom: 20px; color: var(--primary-color);"><i class="fas fa-history"></i> سجل التسديدات</h3>
+       <div class="table-container">
+        <table class="table">
+         <thead>
+          <tr>
+           <th><i class="fas fa-calendar"></i> التاريخ</th>
+           <th><i class="fas fa-money-bill-wave"></i> المبلغ</th>
+           <th><i class="fas fa-hashtag"></i> الشهر المسدد</th>
+           <th><i class="fas fa-sticky-note"></i> ملاحظات</th>
+          </tr>
+         </thead>
+         <tbody id="paymentsHistoryBody">
+          <!-- سجل التسديدات -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+     
+     <!-- 💵 صفحة إدارة التسديدات الشاملة -->
+     <div id="payments" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-hand-holding-usd"></i> إدارة التسديدات والأقساط
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="paymentsSearchInput" class="pos-search-input" placeholder="ابحث في التسديدات..." onkeyup="filterPayments()">
+       </div>
+       <div class="export-import-buttons">
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportPaymentsAsJSON()" data-permission="debts_export"> <i class="fas fa-download"></i> JSON </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportPaymentsAsExcel()" data-permission="debts_export"> <i class="fas fa-file-excel"></i> Excel </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('debts_export')) exportPaymentsAsPDF()" data-permission="debts_export"> <i class="fas fa-file-pdf"></i> PDF </button> 
+       </div>
+       <button class="btn btn-primary" onclick="refreshPaymentsPage()" style="margin-right: 1rem;"> <i class="fas fa-sync-alt"></i> تحديث البيانات </button>
+      </div>
+      
+      <!-- الإحصائيات السريعة -->
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card" onclick="filterPaymentsByStatus('all')" style="cursor: pointer;" title="عرض جميع التسديدات">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-list"></i></div>
+        <div class="stat-value" id="totalPaymentsCount">0</div>
+        <div class="stat-label">إجمالي الأقساط</div>
+       </div>
+       <div class="stat-card" onclick="filterPaymentsByStatus('paid')" style="cursor: pointer;" title="عرض التسديدات المدفوعة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"><i class="fas fa-check-circle"></i></div>
+        <div class="stat-value" id="paidPaymentsCount">0</div>
+        <div class="stat-label">أقساط مسددة</div>
+       </div>
+       <div class="stat-card" onclick="filterPaymentsByStatus('overdue')" style="cursor: pointer;" title="عرض التسديدات المتأخرة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="stat-value" id="overduePaymentsCount">0</div>
+        <div class="stat-label">أقساط متأخرة</div>
+       </div>
+       <div class="stat-card" onclick="filterPaymentsByStatus('upcoming')" style="cursor: pointer;" title="عرض التسديدات القادمة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-clock"></i></div>
+        <div class="stat-value" id="upcomingPaymentsCount">0</div>
+        <div class="stat-label">أقساط قادمة</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><i class="fas fa-money-bill-wave"></i></div>
+        <div class="stat-value" id="totalPaidAmount">0 د</div>
+        <div class="stat-label">إجمالي المسدد</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><i class="fas fa-hourglass-half"></i></div>
+        <div class="stat-value" id="totalRemainingAmount">0 د</div>
+        <div class="stat-label">إجمالي المتبقي</div>
+       </div>
+      </div>
+      
+      <!-- فلاتر متقدمة -->
+      <div class="filter-section" style="background: var(--theme-bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid var(--theme-border-color);">
+       <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <i class="fas fa-filter" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem; font-weight: 600;">الفلاتر والخيارات المتقدمة</h3>
+       </div>
+       
+       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+        <!-- فلتر التاريخ من -->
+        <div class="form-group">
+         <label for="paymentsDateFrom" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <i class="fas fa-calendar-alt" style="color: var(--primary-color);"></i>
+          <span>من تاريخ</span>
+         </label>
+         <input type="date" id="paymentsDateFrom" class="form-control" onchange="applyPaymentsFilters()">
+        </div>
+        
+        <!-- فلتر التاريخ إلى -->
+        <div class="form-group">
+         <label for="paymentsDateTo" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <i class="fas fa-calendar-alt" style="color: var(--primary-color);"></i>
+          <span>إلى تاريخ</span>
+         </label>
+         <input type="date" id="paymentsDateTo" class="form-control" onchange="applyPaymentsFilters()">
+        </div>
+        
+        <!-- فلتر الحالة -->
+        <div class="form-group">
+         <label for="paymentsStatusFilter" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <i class="fas fa-tasks" style="color: var(--primary-color);"></i>
+          <span>حالة التسديد</span>
+         </label>
+         <select id="paymentsStatusFilter" class="form-control" onchange="applyPaymentsFilters()">
+          <option value="all">جميع الحالات</option>
+          <option value="paid">مسدد</option>
+          <option value="overdue">متأخر</option>
+          <option value="upcoming">قادم</option>
+          <option value="pending">معلق</option>
+         </select>
+        </div>
+        
+        <!-- فلتر الترتيب -->
+        <div class="form-group">
+         <label for="paymentsSortFilter" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <i class="fas fa-sort" style="color: var(--primary-color);"></i>
+          <span>ترتيب حسب</span>
+         </label>
+         <select id="paymentsSortFilter" class="form-control" onchange="applyPaymentsFilters()">
+          <option value="date_desc">الأحدث أولاً</option>
+          <option value="date_asc">الأقدم أولاً</option>
+          <option value="amount_desc">المبلغ (الأعلى أولاً)</option>
+          <option value="amount_asc">المبلغ (الأقل أولاً)</option>
+          <option value="customer_asc">اسم العميل (أ-ي)</option>
+          <option value="customer_desc">اسم العميل (ي-أ)</option>
+         </select>
+        </div>
+       </div>
+       
+       <!-- أزرار التحكم -->
+       <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+        <!-- أزرار الفلترة -->
+        <button class="btn btn-secondary" onclick="resetPaymentsFilters()">
+         <i class="fas fa-redo"></i> إعادة تعيين الفلاتر
+        </button>
+        
+        <!-- أزرار التصدير -->
+        <button class="btn btn-info" onclick="exportPaymentsReport()">
+         <i class="fas fa-file-excel"></i> تصدير Excel
+        </button>
+        
+        <!-- قائمة منسدلة للطباعة -->
+        <div class="dropdown" style="position: relative; display: inline-block;">
+         <button class="btn btn-primary" onclick="togglePrintMenu()" style="display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-print"></i> خيارات الطباعة
+          <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+         </button>
+         <div id="printMenuDropdown" style="display: none; position: absolute; background: var(--theme-bg-primary); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 250px; z-index: 1000; margin-top: 5px;">
+          <div style="padding: 8px 0;">
+           <button onclick="printCompletePaymentsReport(); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-file-invoice" style="width: 20px; color: #667eea;"></i>
+            <span>طباعة التقرير الكامل</span>
+           </button>
+           
+           <div style="height: 1px; background: var(--border-color); margin: 5px 0;"></div>
+           
+           <button onclick="printPaymentsStat('total'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-list-ol" style="width: 20px; color: #667eea;"></i>
+            <span>إجمالي الأقساط</span>
+           </button>
+           
+           <button onclick="printPaymentsStat('paid'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-check-circle" style="width: 20px; color: #10b981;"></i>
+            <span>الأقساط المسددة</span>
+           </button>
+           
+           <button onclick="printPaymentsStat('overdue'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-exclamation-triangle" style="width: 20px; color: #ef4444;"></i>
+            <span>الأقساط المتأخرة</span>
+           </button>
+           
+           <button onclick="printPaymentsStat('upcoming'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-clock" style="width: 20px; color: #f59e0b;"></i>
+            <span>الأقساط القادمة</span>
+           </button>
+           
+           <button onclick="printPaymentsStat('paidAmount'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-money-bill-wave" style="width: 20px; color: #06b6d4;"></i>
+            <span>إجمالي المبالغ المسددة</span>
+           </button>
+           
+           <button onclick="printPaymentsStat('remainingAmount'); togglePrintMenu();" style="width: 100%; text-align: right; padding: 10px 15px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--theme-bg-secondary)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-coins" style="width: 20px; color: #8b5cf6;"></i>
+            <span>إجمالي المبالغ المتبقية</span>
+           </button>
+          </div>
+         </div>
+        </div>
+        
+        <script>
+         // دالة لإظهار/إخفاء قائمة الطباعة
+         function togglePrintMenu() {
+          const menu = document.getElementById('printMenuDropdown');
+          if (menu) {
+           menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+          }
+         }
+         
+         // إخفاء القائمة عند النقر خارجها
+         document.addEventListener('click', function(event) {
+          const menu = document.getElementById('printMenuDropdown');
+          const printBtn = event.target.closest('.dropdown');
+          if (menu && !printBtn && menu.style.display === 'block') {
+           menu.style.display = 'none';
+          }
+         });
+        </script>
+       </div>
+      </div>
+      
+      <!-- جدول التسديدات -->
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-hashtag"></i> رقم القسط</th>
+          <th><i class="fas fa-user"></i> اسم العميل</th>
+          <th><i class="fas fa-phone"></i> رقم الهاتف</th>
+          <th><i class="fas fa-money-bill-wave"></i> مبلغ القسط</th>
+          <th><i class="fas fa-calendar-alt"></i> تاريخ الاستحقاق</th>
+          <th><i class="fas fa-calendar-check"></i> تاريخ التسديد</th>
+          <th><i class="fas fa-info-circle"></i> الحالة</th>
+          <th><i class="fas fa-cog"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="paymentsTableBody">
+         <!-- سيتم ملء البيانات ديناميكياً -->
+        </tbody>
+       </table>
+       <div id="noPaymentsMessage" style="display: none; text-align: center; padding: 3rem; color: var(--text-secondary);">
+        <i class="fas fa-inbox" style="font-size: 4rem; color: var(--text-secondary); opacity: 0.3; margin-bottom: 1rem;"></i>
+        <p style="font-size: 1.2rem; font-weight: 600;">لا توجد تسديدات</p>
+        <p style="font-size: 0.95rem;">ابدأ بإضافة ديون لعرض الأقساط هنا</p>
+       </div>
+      </div>
+      
+      <!-- معلومات إضافية -->
+      <div style="background: var(--info-bg); color: var(--info-color); padding: 1rem; border-radius: 8px; margin-top: 1.5rem; border: 1px solid var(--info-border);">
+       <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <i class="fas fa-info-circle" style="font-size: 1.5rem;"></i>
+        <div>
+         <strong>معلومة مفيدة:</strong> يمكنك النقر على بطاقات الإحصائيات لفلترة التسديدات حسب الحالة. كما يمكنك طباعة إيصال التسديد لكل قسط مسدد.
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <!-- 💰 صفحة إدارة التسديدات المتكاملة -->
+     <div id="payments" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-hand-holding-usd"></i> إدارة التسديدات والأقساط
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="paymentsSearchInput" class="pos-search-input" placeholder="ابحث عن عميل، رقم هاتف..." onkeyup="filterPayments()">
+       </div>
+       <button class="btn btn-success" onclick="refreshPaymentsPage()" style="margin-right: 1rem;">
+         <i class="fas fa-sync-alt"></i> تحديث
+       </button>
+      </div>
+      
+      <!-- الإحصائيات السريعة -->
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card" onclick="filterPaymentsByStatus('all')" style="cursor: pointer;" title="جميع التسديدات">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="stat-value" id="totalPaymentsCount">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الأقساط
+        </div>
+       </div>
+       
+       <div class="stat-card" onclick="filterPaymentsByStatus('paid')" style="cursor: pointer;" title="الأقساط المسددة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"><i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-value" id="paidPaymentsCount">
+         0
+        </div>
+        <div class="stat-label">
+         أقساط مسددة
+        </div>
+       </div>
+       
+       <div class="stat-card" onclick="filterPaymentsByStatus('overdue')" style="cursor: pointer;" title="الأقساط المتأخرة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);"><i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="stat-value" id="overduePaymentsCount">
+         0
+        </div>
+        <div class="stat-label">
+         أقساط متأخرة
+        </div>
+       </div>
+       
+       <div class="stat-card" onclick="filterPaymentsByStatus('upcoming')" style="cursor: pointer;" title="الأقساط القادمة">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"><i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-value" id="upcomingPaymentsCount">
+         0
+        </div>
+        <div class="stat-label">
+         أقساط قادمة
+        </div>
+       </div>
+       
+       <div class="stat-card" style="cursor: default;">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);"><i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-value" id="totalPaidAmount">
+         0 د
+        </div>
+        <div class="stat-label">
+         إجمالي المبالغ المسددة
+        </div>
+       </div>
+       
+       <div class="stat-card" style="cursor: default;">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);"><i class="fas fa-coins"></i>
+        </div>
+        <div class="stat-value" id="totalRemainingAmount">
+         0 د
+        </div>
+        <div class="stat-label">
+         إجمالي المبالغ المتبقية
+        </div>
+       </div>
+      </div>
+      
+      <!-- فلاتر متقدمة -->
+      <div class="card" style="margin-bottom: 1.5rem; padding: 20px;">
+       <h3 style="margin-bottom: 15px; color: var(--primary-color); display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-filter"></i> فلاتر البحث المتقدمة
+       </h3>
+       
+       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+        <!-- فلتر التاريخ من -->
+        <div class="form-group">
+         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+          <i class="fas fa-calendar-day"></i> من تاريخ:
+         </label>
+         <input type="date" id="paymentsDateFrom" class="form-control" onchange="applyPaymentsFilters()">
+        </div>
+        
+        <!-- فلتر التاريخ إلى -->
+        <div class="form-group">
+         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+          <i class="fas fa-calendar-day"></i> إلى تاريخ:
+         </label>
+         <input type="date" id="paymentsDateTo" class="form-control" onchange="applyPaymentsFilters()">
+        </div>
+        
+        <!-- فلتر الحالة -->
+        <div class="form-group">
+         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+          <i class="fas fa-info-circle"></i> الحالة:
+         </label>
+         <select id="paymentsStatusFilter" class="form-control" onchange="applyPaymentsFilters()">
+          <option value="all">جميع الحالات</option>
+          <option value="paid">مسددة</option>
+          <option value="pending">قيد الانتظار</option>
+          <option value="overdue">متأخرة</option>
+          <option value="upcoming">قادمة</option>
+         </select>
+        </div>
+        
+        <!-- فلتر الترتيب -->
+        <div class="form-group">
+         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+          <i class="fas fa-sort"></i> ترتيب حسب:
+         </label>
+         <select id="paymentsSortFilter" class="form-control" onchange="applyPaymentsFilters()">
+          <option value="date_desc">التاريخ (الأحدث أولاً)</option>
+          <option value="date_asc">التاريخ (الأقدم أولاً)</option>
+          <option value="amount_desc">المبلغ (الأكبر أولاً)</option>
+          <option value="amount_asc">المبلغ (الأصغر أولاً)</option>
+          <option value="customer_asc">اسم العميل (أ-ي)</option>
+          <option value="customer_desc">اسم العميل (ي-أ)</option>
+         </select>
+        </div>
+       </div>
+       
+       <!-- أزرار التحكم -->
+       <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+        <button class="btn btn-secondary" onclick="resetPaymentsFilters()">
+         <i class="fas fa-redo"></i> إعادة تعيين الفلاتر
+        </button>
+        <button class="btn btn-info" onclick="exportPaymentsReport()">
+         <i class="fas fa-file-excel"></i> تصدير تقرير Excel
+        </button>
+        <button class="btn btn-primary" onclick="printPaymentsReport()">
+         <i class="fas fa-print"></i> طباعة التقرير
+        </button>
+       </div>
+      </div>
+      
+      <!-- جدول التسديدات -->
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-user"></i> اسم العميل</th>
+          <th><i class="fas fa-phone"></i> رقم الهاتف</th>
+          <th><i class="fas fa-hashtag"></i> رقم القسط</th>
+          <th><i class="fas fa-calendar"></i> تاريخ الاستحقاق</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ المستحق</th>
+          <th><i class="fas fa-calendar-check"></i> تاريخ الدفع</th>
+          <th><i class="fas fa-info-circle"></i> الحالة</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="paymentsTableBody">
+         <tr>
+          <td colspan="8" style="text-align: center; padding: 30px;">
+           <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: var(--primary-color);"></i>
+           <p style="margin-top: 10px; color: var(--text-secondary);">جاري تحميل التسديدات...</p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      
+      <!-- رسالة عدم وجود بيانات -->
+      <div id="noPaymentsMessage" style="display: none; text-align: center; padding: 50px; background: var(--theme-bg-secondary); border-radius: 12px; margin-top: 20px;">
+       <i class="fas fa-inbox" style="font-size: 48px; color: var(--text-secondary); opacity: 0.5;"></i>
+       <p style="margin-top: 15px; font-size: 18px; color: var(--text-secondary);">لا توجد تسديدات متاحة</p>
+       <p style="color: var(--text-secondary); opacity: 0.7;">قم بإضافة ديون جديدة لعرض التسديدات هنا</p>
+      </div>
+     </div>
+     
+     <!-- 💰 صفحة إدارة المصاريف الشاملة -->
+     <div id="expenses" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-money-bill-wave"></i> إدارة المصاريف والمشتريات
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="expensesSearchInput" class="pos-search-input" placeholder="ابحث في المصاريف..." onkeyup="filterExpenses()">
+       </div>
+       <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <div class="export-import-buttons">
+            <button class="export-btn" onclick="exportData('expenses', 'json')"> <i class="fas fa-download"></i> JSON </button> 
+            <button class="export-btn" onclick="exportData('expenses', 'excel')"> <i class="fas fa-file-excel"></i> Excel </button> 
+            <button class="export-btn" onclick="exportData('expenses', 'pdf')"> <i class="fas fa-file-pdf"></i> PDF </button>
+        </div>
+        <button class="btn btn-success" onclick="showAddExpenseModal()"> <i class="fas fa-plus"></i> إضافة مصروف </button>
+        <button class="btn btn-primary" onclick="showAddPurchaseModal()"> <i class="fas fa-cart-plus"></i> إضافة فاتورة مشتريات </button>
+       </div>
+      </div>
+      
+      <!-- الإحصائيات الشاملة -->
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+        <div class="stat-value" id="totalExpensesAmount">0 دينار</div>
+        <div class="stat-label">إجمالي المصاريف</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+        <div class="stat-value" id="totalPurchasesAmount">0 دينار</div>
+        <div class="stat-label">إجمالي المشتريات</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+        <div class="stat-value" id="monthlyExpensesAmount">0 دينار</div>
+        <div class="stat-label">مصاريف هذا الشهر</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-receipt"></i></div>
+        <div class="stat-value" id="totalExpensesCount">0</div>
+        <div class="stat-label">عدد السجلات</div>
+       </div>
+      </div>
+      
+      <!-- Tabs للتبديل بين المصاريف والمشتريات -->
+      <div class="expense-tabs">
+       <button class="expense-tab-btn active" onclick="switchExpenseTab('general')">
+        <i class="fas fa-money-bill-wave"></i> المصاريف العامة
+       </button>
+       <button class="expense-tab-btn" onclick="switchExpenseTab('purchases')">
+        <i class="fas fa-shopping-cart"></i> فواتير المشتريات
+       </button>
+       <button class="expense-tab-btn" onclick="switchExpenseTab('reports')">
+        <i class="fas fa-chart-line"></i> التقارير
+       </button>
+      </div>
+      
+      <!-- تبويب المصاريف العامة -->
+      <div id="generalExpensesTab" class="expense-tab-content active">
+       <div class="table-container">
+        <table class="table">
+         <thead>
+          <tr>
+           <th><i class="fas fa-hashtag"></i> #</th>
+           <th><i class="fas fa-list"></i> نوع المصروف</th>
+           <th><i class="fas fa-money-bill"></i> المبلغ</th>
+           <th><i class="fas fa-calendar"></i> التاريخ</th>
+           <th><i class="fas fa-sticky-note"></i> الوصف</th>
+           <th><i class="fas fa-user"></i> المضاف بواسطة</th>
+           <th><i class="fas fa-cogs"></i> الإجراءات</th>
+          </tr>
+         </thead>
+         <tbody id="generalExpensesTableBody">
+          <!-- المصاريف العامة ستظهر هنا -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      
+      <!-- تبويب فواتير المشتريات -->
+      <div id="purchasesTab" class="expense-tab-content">
+       <div class="table-container">
+        <table class="table">
+         <thead>
+          <tr>
+           <th><i class="fas fa-hashtag"></i> رقم الفاتورة</th>
+           <th><i class="fas fa-building"></i> اسم المورد</th>
+           <th><i class="fas fa-phone"></i> هاتف المورد</th>
+           <th><i class="fas fa-money-bill"></i> إجمالي المبلغ</th>
+           <th><i class="fas fa-boxes"></i> عدد المنتجات</th>
+           <th><i class="fas fa-calendar"></i> التاريخ</th>
+           <th><i class="fas fa-cogs"></i> الإجراءات</th>
+          </tr>
+         </thead>
+         <tbody id="purchasesTableBody">
+          <!-- فواتير المشتريات ستظهر هنا -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      
+      <!-- تبويب التقارير -->
+      <div id="reportsTab" class="expense-tab-content">
+       <!-- فلتر التقارير -->
+       <div class="reports-filters">
+        <div class="filter-group">
+         <label><i class="fas fa-calendar"></i> الفترة الزمنية:</label>
+         <select id="reportsPeriodFilter" onchange="updateExpensesReports()">
+          <option value="today">اليوم</option>
+          <option value="week">هذا الأسبوع</option>
+          <option value="month" selected>هذا الشهر</option>
+          <option value="year">هذا العام</option>
+          <option value="custom">فترة مخصصة</option>
+         </select>
+        </div>
+        <div class="filter-group" id="customDateRangeGroup" style="display: none;">
+         <label>من:</label>
+         <input type="date" id="reportsDateFrom">
+         <label>إلى:</label>
+         <input type="date" id="reportsDateTo">
+         <button class="btn btn-primary" onclick="updateExpensesReports()">تطبيق</button>
+        </div>
+       </div>
+       
+       <!-- إحصائيات التقارير -->
+       <div class="stats-grid" style="margin: 2rem 0;">
+        <div class="stat-card">
+         <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);"><i class="fas fa-money-bill-wave"></i></div>
+         <div class="stat-value" id="reportTotalExpenses">0 دينار</div>
+         <div class="stat-label">إجمالي المصاريف</div>
+        </div>
+        <div class="stat-card">
+         <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i class="fas fa-shopping-cart"></i></div>
+         <div class="stat-value" id="reportTotalPurchases">0 دينار</div>
+         <div class="stat-label">إجمالي المشتريات</div>
+        </div>
+        <div class="stat-card">
+         <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);"><i class="fas fa-home"></i></div>
+         <div class="stat-value" id="reportRentExpenses">0 دينار</div>
+         <div class="stat-label">مصاريف الإيجار</div>
+        </div>
+        <div class="stat-card">
+         <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #059669);"><i class="fas fa-bolt"></i></div>
+         <div class="stat-value" id="reportUtilitiesExpenses">0 دينار</div>
+         <div class="stat-label">مصاريف الكهرباء/الماء</div>
+        </div>
+       </div>
+       
+       <!-- جدول تفصيلي للمصاريف حسب النوع -->
+       <div class="card" style="margin-top: 2rem;">
+        <h3 style="margin-bottom: 1.5rem;"><i class="fas fa-chart-pie"></i> تفصيل المصاريف حسب النوع</h3>
+        <div class="table-container">
+         <table class="table">
+          <thead>
+           <tr>
+            <th><i class="fas fa-list"></i> نوع المصروف</th>
+            <th><i class="fas fa-hashtag"></i> العدد</th>
+            <th><i class="fas fa-money-bill"></i> المبلغ الإجمالي</th>
+            <th><i class="fas fa-percent"></i> النسبة</th>
+           </tr>
+          </thead>
+          <tbody id="expensesByTypeTableBody">
+           <!-- التفاصيل ستظهر هنا -->
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+       <!-- جدول المنتجات المشتراة -->
+       <div class="card" style="margin-top: 2rem;">
+        <h3 style="margin-bottom: 1.5rem;"><i class="fas fa-boxes"></i> المنتجات المشتراة في الفترة المحددة</h3>
+        <div class="table-container">
+         <table class="table">
+          <thead>
+           <tr>
+            <th><i class="fas fa-box"></i> اسم المنتج</th>
+            <th><i class="fas fa-building"></i> المورد</th>
+            <th><i class="fas fa-sort-numeric-up"></i> الكمية</th>
+            <th><i class="fas fa-money-bill"></i> السعر</th>
+            <th><i class="fas fa-money-bill-wave"></i> الإجمالي</th>
+            <th><i class="fas fa-calendar"></i> التاريخ</th>
+           </tr>
+          </thead>
+          <tbody id="purchasedProductsTableBody">
+           <!-- المنتجات المشتراة ستظهر هنا -->
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <!-- صفحة إدارة الطابعة -->
+     <div id="printer" class="page">
+      <div class="section-header">
+       <div class="section-title"><i class="fas fa-print"></i> إدارة الطباعة المتقدمة
+       </div>
+       <div style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary" onclick="testPrintReceipt()">
+         <i class="fas fa-print"></i> طباعة تجريبية
+        </button>
+        <button class="btn btn-success" onclick="savePrinterSettings()">
+         <i class="fas fa-save"></i> حفظ الإعدادات
+        </button>
+        <button class="btn btn-secondary" onclick="resetPrinterSettings()">
+         <i class="fas fa-undo"></i> استعادة الافتراضي
+        </button>
+        <button class="btn btn-info" onclick="refreshPrintersList()">
+         <i class="fas fa-sync"></i> تحديث الطابعات
+        </button>
+       </div>
+      </div>
+
+      <div class="stats-grid">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-print"></i></div>
+        <div class="stat-value" id="totalPrints">0</div>
+        <div class="stat-label">إجمالي المطبوعات</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+        <div class="stat-value" id="todayPrints">0</div>
+        <div class="stat-label">مطبوعات اليوم</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-cog"></i></div>
+        <div class="stat-value" id="activePrinterType">A4</div>
+        <div class="stat-label">نوع الطابعة النشط</div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-receipt"></i></div>
+        <div class="stat-value" id="activeTemplateType">نقدي</div>
+        <div class="stat-label">القالب النشط</div>
+       </div>
+      </div>
+
+      <!-- قسم الطابعات المتصلة -->
+      <div class="table-container" style="margin-top: 2rem;">
+       <div style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+         <i class="fas fa-printer"></i> الطابعات المتصلة
+        </h3>
+        <div id="connectedPrintersList" style="min-height: 100px;">
+         <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+          <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+          <p>جاري البحث عن الطابعات المتصلة...</p>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <!-- قسم إعدادات الطابعة والمعاينة -->
+      <div style="display: grid; grid-template-columns: 400px 1fr; gap: 2rem; margin-top: 2rem;">
+       
+       <!-- لوحة الإعدادات -->
+       <div class="table-container" style="height: fit-content;">
+        <div style="padding: 1.5rem;">
+         <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-cog"></i> إعدادات القالب
+         </h3>
+
+         <!-- اختيار نوع القالب -->
+         <div class="form-group">
+          <label class="form-label">
+           <i class="fas fa-file-invoice"></i> نوع القالب
+          </label>
+          <select class="form-select" id="receiptTemplate" onchange="updateReceiptPreview()">
+           <option value="cash">إيصال نقدي</option>
+           <option value="installment">إيصال تقسيط</option>
+          </select>
+         </div>
+
+         <!-- اختيار الطابعة -->
+         <div class="form-group">
+          <label class="form-label">
+           <i class="fas fa-print"></i> الطابعة المفضلة
+          </label>
+          <select class="form-select" id="selectedPrinter">
+           <option value="">الطابعة الافتراضية</option>
+          </select>
+         </div>
+
+         <!-- نوع الطابعة -->
+         <div class="form-group">
+          <label class="form-label">
+           <i class="fas fa-print"></i> نوع الطابعة
+          </label>
+          <select class="form-select" id="printerType" onchange="updateReceiptPreview()">
+           <option value="a4">طابعة A4</option>
+           <option value="thermal-80">طابعة حرارية 80mm</option>
+           <option value="thermal-58">طابعة حرارية 58mm</option>
+          </select>
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- أحجام الخطوط -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-text-height"></i> أحجام الخطوط
+         </h4>
+
+         <!-- حجم عنوان المتجر -->
+         <div class="form-group">
+          <label class="form-label">عنوان المتجر (px)</label>
+          <input type="range" class="form-range" id="storeTitleSize" min="14" max="32" value="24" 
+                 oninput="updateReceiptPreview(); document.getElementById('storeTitleSizeValue').textContent = this.value">
+          <span id="storeTitleSizeValue" style="font-weight: bold;">24</span>
+         </div>
+
+         <!-- حجم معلومات المتجر -->
+         <div class="form-group">
+          <label class="form-label">معلومات المتجر (px)</label>
+          <input type="range" class="form-range" id="storeInfoSize" min="10" max="20" value="14" 
+                 oninput="updateReceiptPreview(); document.getElementById('storeInfoSizeValue').textContent = this.value">
+          <span id="storeInfoSizeValue" style="font-weight: bold;">14</span>
+         </div>
+
+         <!-- حجم نص الفاتورة -->
+         <div class="form-group">
+          <label class="form-label">نص الفاتورة (px)</label>
+          <input type="range" class="form-range" id="invoiceTextSize" min="10" max="18" value="13" 
+                 oninput="updateReceiptPreview(); document.getElementById('invoiceTextSizeValue').textContent = this.value">
+          <span id="invoiceTextSizeValue" style="font-weight: bold;">13</span>
+         </div>
+
+         <!-- حجم الجدول -->
+         <div class="form-group">
+          <label class="form-label">جدول المنتجات (px)</label>
+          <input type="range" class="form-range" id="tableTextSize" min="10" max="18" value="12" 
+                 oninput="updateReceiptPreview(); document.getElementById('tableTextSizeValue').textContent = this.value">
+          <span id="tableTextSizeValue" style="font-weight: bold;">12</span>
+         </div>
+
+         <!-- حجم الإجمالي -->
+         <div class="form-group">
+          <label class="form-label">الإجمالي (px)</label>
+          <input type="range" class="form-range" id="totalTextSize" min="12" max="22" value="16" 
+                 oninput="updateReceiptPreview(); document.getElementById('totalTextSizeValue').textContent = this.value">
+          <span id="totalTextSizeValue" style="font-weight: bold;">16</span>
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- تنسيق الإيصال -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-paint-brush"></i> تنسيق الإيصال
+         </h4>
+
+         <!-- المسافة بين الأسطر -->
+         <div class="form-group">
+          <label class="form-label">المسافة بين الأسطر</label>
+          <input type="range" class="form-range" id="lineHeight" min="1" max="2" step="0.1" value="1.4" 
+                 oninput="updateReceiptPreview(); document.getElementById('lineHeightValue').textContent = this.value">
+          <span id="lineHeightValue" style="font-weight: bold;">1.4</span>
+         </div>
+
+         <!-- الهوامش الجانبية -->
+         <div class="form-group">
+          <label class="form-label">الهوامش الجانبية (px)</label>
+          <input type="range" class="form-range" id="sidePadding" min="5" max="30" value="15" 
+                 oninput="updateReceiptPreview(); document.getElementById('sidePaddingValue').textContent = this.value">
+          <span id="sidePaddingValue" style="font-weight: bold;">15</span>
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- خيارات إضافية -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-sliders-h"></i> خيارات إضافية
+         </h4>
+
+         <!-- إظهار التاريخ والوقت -->
+         <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+           <input type="checkbox" id="showDateTime" checked onchange="updateReceiptPreview()">
+           <span>إظهار التاريخ والوقت</span>
+          </label>
+         </div>
+
+         <!-- إظهار رقم الفاتورة -->
+         <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+           <input type="checkbox" id="showInvoiceNumber" checked onchange="updateReceiptPreview()">
+           <span>إظهار رقم الفاتورة</span>
+          </label>
+         </div>
+
+         <!-- نص التذييل المخصص -->
+         <div class="form-group">
+          <label class="form-label">نص التذييل المخصص</label>
+          <textarea class="form-control" id="customFooter" rows="2" 
+                    placeholder="شكراً لزيارتكم" oninput="updateReceiptPreview()"></textarea>
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- معلومات المتجر -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-store"></i> معلومات المتجر
+         </h4>
+
+         <!-- اسم المتجر -->
+         <div class="form-group">
+          <label class="form-label">اسم المتجر</label>
+          <input type="text" class="form-control" id="storeName" 
+                 value="معرض يعقوب للأجهزة الكهربائية"
+                 placeholder="اسم المتجر" oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- عنوان المتجر -->
+         <div class="form-group">
+          <label class="form-label">عنوان المتجر</label>
+          <input type="text" class="form-control" id="storeAddress" 
+                 value="باب الهاشمية قرب مدرسة الكرار"
+                 placeholder="العنوان" oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- هاتف المتجر -->
+         <div class="form-group">
+          <label class="form-label">هاتف المتجر</label>
+          <input type="text" class="form-control" id="storePhone" 
+                 value="07803092185"
+                 placeholder="رقم الهاتف" oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- مسار اللوجو -->
+         <div class="form-group">
+          <label class="form-label">مسار اللوجو</label>
+          <input type="text" class="form-control" id="storeLogo" 
+                 value="yaqoub_logo.png"
+                 placeholder="اسم ملف اللوجو" oninput="updateReceiptPreview()">
+          <small style="color: var(--text-secondary); font-size: 0.85rem;">
+           ضع ملف الصورة في مجلد المشروع واكتب اسمها هنا
+          </small>
+         </div>
+
+         <!-- إظهار اللوجو -->
+         <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+           <input type="checkbox" id="showLogo" checked onchange="updateReceiptPreview()">
+           <span>إظهار اللوجو في الإيصال</span>
+          </label>
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- الملاحظات -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-sticky-note"></i> الملاحظات الهامة
+         </h4>
+
+         <!-- الملاحظة 1 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 1</label>
+          <input type="text" class="form-control" id="note1" 
+                 value="المبلغ الموجود هو وصل أمانة"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- الملاحظة 2 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 2</label>
+          <input type="text" class="form-control" id="note2" 
+                 value="السعر محمي 24 ساعة"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- الملاحظة 3 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 3</label>
+          <input type="text" class="form-control" id="note3" 
+                 value="المباع لا يرجع ولا يبدل"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- الملاحظة 4 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 4</label>
+          <input type="text" class="form-control" id="note4" 
+                 value="الخطأ والسهو مرجوع للطرفين"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- الملاحظة 5 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 5</label>
+          <input type="text" class="form-control" id="note5" 
+                 value="الشركة المصنعة مسؤولة عن الضمان"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- الملاحظة 6 -->
+         <div class="form-group">
+          <label class="form-label">ملاحظة 6</label>
+          <input type="text" class="form-control" id="note6" 
+                 value="كسر الشاشة غير داخل بالضمان"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <hr style="margin: 1.5rem 0; border-color: var(--border-color);">
+
+         <!-- معلومات الصيانة -->
+         <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-tools"></i> معلومات الصيانة
+         </h4>
+
+         <!-- اسم مسؤول الصيانة -->
+         <div class="form-group">
+          <label class="form-label">اسم مسؤول الصيانة</label>
+          <input type="text" class="form-control" id="maintenanceName" 
+                 value="حمزه ابو حوراء"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- نوع الخدمة -->
+         <div class="form-group">
+          <label class="form-label">نوع خدمة الصيانة</label>
+          <input type="text" class="form-control" id="maintenanceService" 
+                 value="صيانة السبالت"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- هاتف الصيانة -->
+         <div class="form-group">
+          <label class="form-label">هاتف الصيانة</label>
+          <input type="text" class="form-control" id="maintenancePhone" 
+                 value="+964 785 570 6118"
+                 oninput="updateReceiptPreview()">
+         </div>
+
+         <!-- إظهار معلومات الصيانة -->
+         <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+           <input type="checkbox" id="showMaintenance" checked onchange="updateReceiptPreview()">
+           <span>إظهار معلومات الصيانة</span>
+          </label>
+         </div>
+
+        </div>
+       </div>
+
+       <!-- معاينة مباشرة -->
+       <div class="table-container">
+        <div style="padding: 1.5rem;">
+         <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <span><i class="fas fa-eye"></i> معاينة مباشرة</span>
+          <span style="font-size: 0.9rem; color: var(--text-secondary);">
+           تحديث تلقائي
+          </span>
+         </h3>
+         
+         <!-- منطقة المعاينة -->
+         <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; display: flex; justify-content: center; align-items: flex-start; min-height: 600px; max-height: 800px; overflow-y: auto;">
+          <div id="receiptPreview" style="background: white; color: black; box-shadow: 0 10px 40px rgba(0,0,0,0.2); border-radius: 4px; max-width: 100%; overflow: hidden;">
+           <!-- سيتم ملء المعاينة هنا -->
+          </div>
+         </div>
+
+        </div>
+       </div>
+
+      </div>
+
+     </div>
+
+     <!-- صفحة الإعدادات العامة -->
+     <div id="settings" class="page">
+      <div class="section-header" style="margin-bottom: 2rem;">
+       <div class="section-title"><i class="fas fa-cog"></i> الإعدادات العامة</div>
+       <div class="section-subtitle">إدارة جميع إعدادات النظام من مكان واحد</div>
+      </div>
+
+      <!-- معلومات سريعة عن النظام -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+        <div class="info-mini-card">
+          <div class="info-mini-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+            <i class="fas fa-box"></i>
+          </div>
+          <div class="info-mini-content">
+            <div class="info-mini-label">إجمالي المنتجات</div>
+            <div class="info-mini-value" id="settingsProductCount">0</div>
+          </div>
+        </div>
+        
+        <div class="info-mini-card">
+          <div class="info-mini-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="info-mini-content">
+            <div class="info-mini-label">التصنيفات</div>
+            <div class="info-mini-value" id="settingsCategoryCount">0</div>
+          </div>
+        </div>
+        
+        <div class="info-mini-card">
+          <div class="info-mini-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+            <i class="fas fa-receipt"></i>
+          </div>
+          <div class="info-mini-content">
+            <div class="info-mini-label">الفواتير</div>
+            <div class="info-mini-value" id="settingsInvoiceCount">0</div>
+          </div>
+        </div>
+        
+        <div class="info-mini-card">
+          <div class="info-mini-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div class="info-mini-content">
+            <div class="info-mini-label">قيمة المبيعات</div>
+            <div class="info-mini-value" id="settingsSalesValue">0 د.ع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- قسم الإعدادات الرئيسية -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+          <span style="width: 4px; height: 24px; background: var(--primary-gradient); border-radius: 2px;"></span>
+          <i class="fas fa-sliders-h"></i>
+          الإعدادات الرئيسية
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          
+          <!-- بطاقة إعدادات المتجر -->
+          <div class="settings-card" onclick="showSettingsPage('store')">
+            <div class="settings-card-icon store-icon">
+              <i class="fas fa-store"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>إعدادات المتجر</h3>
+              <p>معلومات المتجر، العنوان، الضرائب والفروع</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+          <!-- بطاقة إعدادات النظام -->
+          <div class="settings-card" onclick="showSettingsPage('system')">
+            <div class="settings-card-icon system-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>إعدادات النظام</h3>
+              <p>المظهر، اللغة، العملة وإعدادات العرض</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+          <!-- بطاقة إعدادات الطباعة -->
+          <div class="settings-card" onclick="showSettingsPage('printing')">
+            <div class="settings-card-icon printing-icon">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>إعدادات الطباعة</h3>
+              <p>إعدادات الفواتير والطابعات</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+          <!-- بطاقة حساب المستخدم -->
+          <div class="settings-card" onclick="showSettingsPage('account')">
+            <div class="settings-card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>حساب المستخدم</h3>
+              <p>معلومات الحساب، الاشتراك والشركة</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- قسم البيانات والنسخ الاحتياطي -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+          <span style="width: 4px; height: 24px; background: var(--primary-gradient); border-radius: 2px;"></span>
+          <i class="fas fa-database"></i>
+          البيانات والنسخ الاحتياطي
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          
+          <!-- بطاقة النسخ الاحتياطية -->
+          <div class="settings-card" onclick="showSettingsPage('backup')">
+            <div class="settings-card-icon backup-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>النسخ الاحتياطية</h3>
+              <p>إنشاء واستعادة النسخ الاحتياطية للبيانات</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+          <!-- بطاقة إعدادات الأمان -->
+          <div class="settings-card" onclick="showSettingsPage('security')">
+            <div class="settings-card-icon security-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="settings-card-content">
+              <h3>الأمان والخصوصية</h3>
+              <p>كلمات المرور والصلاحيات</p>
+            </div>
+            <div class="settings-card-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- قسم الإحصائيات والتقارير -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+          <span style="width: 4px; height: 24px; background: var(--primary-gradient); border-radius: 2px;"></span>
+          <i class="fas fa-chart-line"></i>
+          نظرة عامة على النظام
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          
+          <!-- بطاقة حالة المخزون -->
+          <div class="stat-overview-card">
+            <div class="stat-overview-header">
+              <div class="stat-overview-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                <i class="fas fa-warehouse"></i>
+              </div>
+              <h4>حالة المخزون</h4>
+            </div>
+            <div class="stat-overview-body">
+              <div class="stat-overview-item">
+                <span>المنتجات النشطة</span>
+                <strong id="activeProductsCount">0</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>منتجات قاربت النفاذ</span>
+                <strong id="lowStockCount" style="color: #fbbf24;">0</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>منتجات نفذت</span>
+                <strong id="outOfStockCount" style="color: #ef4444;">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- بطاقة ملخص المبيعات -->
+          <div class="stat-overview-card">
+            <div class="stat-overview-header">
+              <div class="stat-overview-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h4>ملخص المبيعات</h4>
+            </div>
+            <div class="stat-overview-body">
+              <div class="stat-overview-item">
+                <span>إجمالي الفواتير</span>
+                <strong id="totalInvoicesCount">0</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>إجمالي المبيعات</span>
+                <strong id="totalSalesAmount">0 د.ع</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>متوسط قيمة الفاتورة</span>
+                <strong id="averageInvoice">0 د.ع</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- بطاقة حالة الديون -->
+          <div class="stat-overview-card">
+            <div class="stat-overview-header">
+              <div class="stat-overview-icon" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <h4>حالة الديون</h4>
+            </div>
+            <div class="stat-overview-body">
+              <div class="stat-overview-item">
+                <span>عدد المدينين</span>
+                <strong id="totalDebtorsCount">0</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>إجمالي الديون</span>
+                <strong id="totalDebtsAmount">0 د.ع</strong>
+              </div>
+                            <div class="stat-overview-item">
+                                <span>ديون متأخرة</span>
+                                <strong id="overdueDebtsCount" style="color: #ef4444;">0</strong>
+                            </div>
+                            <div class="stat-overview-item">
+                                <span>ديون مشددة</span>
+                                <strong id="severeDebtsCount" style="color: #b91c1c;">0</strong>
+                            </div>
+            </div>
+          </div>
+
+          <!-- بطاقة معلومات النظام -->
+          <div class="stat-overview-card">
+            <div class="stat-overview-header">
+              <div class="stat-overview-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <i class="fas fa-info-circle"></i>
+              </div>
+              <h4>معلومات النظام</h4>
+            </div>
+            <div class="stat-overview-body">
+              <div class="stat-overview-item">
+                <span>إصدار التطبيق</span>
+                <strong>v2.0.0</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>آخر نسخة احتياطية</span>
+                <strong id="lastBackupDate">لا توجد</strong>
+              </div>
+              <div class="stat-overview-item">
+                <span>حالة النظام</span>
+                <strong style="color: #22c55e;">
+                  <i class="fas fa-check-circle"></i> يعمل بشكل جيد
+                </strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- قسم الإجراءات السريعة -->
+      <div>
+        <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+          <span style="width: 4px; height: 24px; background: var(--primary-gradient); border-radius: 2px;"></span>
+          <i class="fas fa-bolt"></i>
+          إجراءات سريعة
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          
+          <button class="quick-action-btn" onclick="showSettingsPage('backup')" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+            <i class="fas fa-download"></i>
+            <span>تصدير البيانات</span>
+          </button>
+
+          <button class="quick-action-btn" onclick="window.print()" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+            <i class="fas fa-print"></i>
+            <span>طباعة التقرير</span>
+          </button>
+
+          <button class="quick-action-btn" onclick="refreshApp()" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+            <i class="fas fa-sync-alt"></i>
+            <span>تحديث البيانات</span>
+          </button>
+
+          <button class="quick-action-btn" onclick="showSettingsPage('system')" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+            <i class="fas fa-palette"></i>
+            <span>تغيير المظهر</span>
+          </button>
+
+        </div>
+      </div>
+
+     </div>
+
+     <!-- صفحة إعدادات المتجر -->
+     <div id="settings-store" class="page" style="display: none;">
+      <div class="section-header">
+       <button class="btn btn-secondary" onclick="showPage('settings')" style="margin-left: 1rem;">
+         <i class="fas fa-arrow-right"></i> رجوع
+       </button>
+       <div class="section-title"><i class="fas fa-store"></i> إعدادات المتجر</div>
+      </div>
+
+      <div class="settings-full-width">
+        <div class="settings-content-wrapper">
+          
+          <!-- معلومات المتجر الأساسية -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-info-circle"></i> المعلومات الأساسية
+            </h3>
+            
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-store"></i> اسم المتجر</label>
+              <input type="text" class="form-input" id="settingsStoreName" placeholder="اسم متجرك">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-user"></i> اسم المالك</label>
+              <input type="text" class="form-input" id="settingsOwnerName" placeholder="اسم مالك المتجر">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-file-alt"></i> رقم السجل التجاري</label>
+              <input type="text" class="form-input" id="settingsCommercialReg" placeholder="رقم السجل التجاري">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-certificate"></i> الرقم الضريبي</label>
+              <input type="text" class="form-input" id="settingsTaxNumber" placeholder="الرقم الضريبي للمتجر">
+            </div>
+          </div>
+
+          <!-- معلومات الاتصال -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-address-card"></i> معلومات الاتصال
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-map-marker-alt"></i> العنوان الكامل</label>
+              <textarea class="form-input" id="settingsStoreAddress" rows="3" placeholder="المدينة - الحي - الشارع"></textarea>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label"><i class="fas fa-phone"></i> رقم الهاتف 1</label>
+                <input type="tel" class="form-input" id="settingsStorePhone1" placeholder="07XXXXXXXXX">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><i class="fas fa-phone"></i> رقم الهاتف 2</label>
+                <input type="tel" class="form-input" id="settingsStorePhone2" placeholder="07XXXXXXXXX">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+              <input type="email" class="form-input" id="settingsStoreEmail" placeholder="info@store.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fab fa-whatsapp"></i> رقم الواتساب</label>
+              <input type="tel" class="form-input" id="settingsWhatsapp" placeholder="07XXXXXXXXX">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-globe"></i> الموقع الإلكتروني</label>
+              <input type="url" class="form-input" id="settingsWebsite" placeholder="https://yourstore.com">
+            </div>
+          </div>
+
+          <!-- الإعدادات المالية -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-dollar-sign"></i> الإعدادات المالية
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-percentage"></i> معدل الضريبة (%)</label>
+              <input type="number" class="form-input" id="settingsTaxRate" value="0" min="0" max="100" step="0.1">
+              <small style="color: var(--theme-text-secondary); margin-top: 0.5rem; display: block;">
+                سيتم تطبيق هذه الضريبة على جميع الفواتير
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-coins"></i> العملة الافتراضية</label>
+              <select class="form-select" id="settingsDefaultCurrency">
+                <option value="IQD">دينار عراقي (IQD)</option>
+                <option value="USD">دولار أمريكي (USD)</option>
+                <option value="EUR">يورو (EUR)</option>
+                <option value="GBP">جنيه استرليني (GBP)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fas fa-money-bill"></i> أقل مبلغ للديون المسموح</label>
+              <input type="number" class="form-input" id="settingsMinDebtAmount" value="0">
+            </div>
+          </div>
+
+          <!-- أوقات العمل -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-clock"></i> أوقات العمل
+            </h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">وقت الفتح</label>
+                <input type="time" class="form-input" id="settingsOpenTime" value="09:00">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">وقت الإغلاق</label>
+                <input type="time" class="form-input" id="settingsCloseTime" value="22:00">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">أيام العطل</label>
+              <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="checkbox" id="closedFriday" style="width: auto;">
+                  <span>الجمعة</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="checkbox" id="closedSaturday" style="width: auto;">
+                  <span>السبت</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- الشعار -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-image"></i> شعار المتجر
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">رفع شعار المتجر</label>
+              <input type="file" class="form-input" id="settingsStoreLogo" accept="image/*">
+              <small style="color: var(--theme-text-secondary); margin-top: 0.5rem; display: block;">
+                سيظهر الشعار على الفواتير المطبوعة (يفضل صورة بخلفية شفافة PNG)
+              </small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" onclick="saveStoreSettings()">
+              <i class="fas fa-save"></i> حفظ جميع الإعدادات
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('settings')">
+              <i class="fas fa-times"></i> إلغاء
+            </button>
+          </div>
+
+        </div>
+      </div>
+     </div>
+
+     <!-- صفحة إعدادات النظام -->
+     <div id="settings-system" class="page" style="display: none;">
+      <div class="section-header">
+       <button class="btn btn-secondary" onclick="showPage('settings')" style="margin-left: 1rem;">
+         <i class="fas fa-arrow-right"></i> رجوع
+       </button>
+       <div class="section-title"><i class="fas fa-desktop"></i> إعدادات النظام</div>
+      </div>
+
+      <div class="settings-full-width">
+        <div class="settings-content-wrapper">
+          
+          <!-- إعدادات المظهر -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-palette"></i> إعدادات المظهر
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">اختر مظهر التطبيق الكامل</label>
+              <select class="form-select" id="themeSelect" onchange="changeTheme(this.value)" style="font-size: 1rem;">
+                <optgroup label="الثيمات الكلاسيكية">
+                  <option value="dark">🌙 المظهر الداكن (كلاسيكي)</option>
+                  <option value="light">☀️ المظهر الفاتح (كلاسيكي)</option>
+                </optgroup>
+                
+                <optgroup label="الثيمات الداكنة الملونة">
+                  <option value="blue-dark">🔵 أزرق داكن (Blue Dark)</option>
+                  <option value="green-dark">💚 أخضر داكن (Green Dark)</option>
+                  <option value="orange-dark">🧡 برتقالي داكن (Orange Dark)</option>
+                  <option value="purple-dark">💜 بنفسجي داكن (Purple Dark)</option>
+                  <option value="red-dark">❤️ أحمر داكن (Red Dark)</option>
+                  <option value="olive">🟢 زيتوني داكن (Olive)</option>
+                  <option value="royal-blue">🔴 أزرق ملكي (Royal Blue)</option>
+                </optgroup>
+                
+                <optgroup label="الثيمات الفاتحة الملونة">
+                  <option value="cyan-light">🩵 سماوي فاتح (Cyan Light)</option>
+                  <option value="gold-light">🟡 ذهبي فاتح (Gold Light)</option>
+                  <option value="pink-light">🌸 وردي فاتح (Pink Light)</option>
+                </optgroup>
+              </select>
+              <small style="color: var(--theme-text-secondary); margin-top: 0.5rem; display: block;">
+                اختر الثيم المفضل - سيتم تطبيق الألوان على كامل التطبيق فوراً
+              </small>
+              
+              <!-- معاينة سريعة للثيمات -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 0.75rem; margin-top: 1rem; padding: 1rem; background: var(--theme-bg-hover); border-radius: 12px;">
+                <button onclick="changeTheme('dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #e8e8e8;" title="الداكن الكلاسيكي">
+                  🌙
+                </button>
+                <button onclick="changeTheme('light')" class="theme-preview-btn" style="background: linear-gradient(135deg, #f5f5f0 0%, #ffffff 100%); color: #1a1a1a; border: 1px solid #d8d8d8;" title="الفاتح الكلاسيكي">
+                  ☀️
+                </button>
+                <button onclick="changeTheme('blue-dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #0a1628 0%, #152238 100%); color: #e1f0ff;" title="أزرق داكن">
+                  🔵
+                </button>
+                <button onclick="changeTheme('green-dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #0a1f0f 0%, #14321f 100%); color: #d1fae5;" title="أخضر داكن">
+                  💚
+                </button>
+                <button onclick="changeTheme('orange-dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #1f1208 0%, #351e18 100%); color: #ffe4d1;" title="برتقالي داكن">
+                  🧡
+                </button>
+                <button onclick="changeTheme('purple-dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #1a0a28 0%, #2e1542 100%); color: #f0d1ff;" title="بنفسجي داكن">
+                  💜
+                </button>
+                <button onclick="changeTheme('red-dark')" class="theme-preview-btn" style="background: linear-gradient(135deg, #280a0a 0%, #421515 100%); color: #ffd1d1;" title="أحمر داكن">
+                  ❤️
+                </button>
+                <button onclick="changeTheme('cyan-light')" class="theme-preview-btn" style="background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%); color: #0e2933; border: 1px solid #b0dce5;" title="سماوي فاتح">
+                  🩵
+                </button>
+                <button onclick="changeTheme('gold-light')" class="theme-preview-btn" style="background: linear-gradient(135deg, #fffbea 0%, #ffffff 100%); color: #2a2008; border: 1px solid #e8d89b;" title="ذهبي فاتح">
+                  🟡
+                </button>
+                <button onclick="changeTheme('pink-light')" class="theme-preview-btn" style="background: linear-gradient(135deg, #fce7f3 0%, #ffffff 100%); color: #2d081f; border: 1px solid #f5c0dd;" title="وردي فاتح">
+                  🌸
+                </button>
+                <button onclick="changeTheme('olive')" class="theme-preview-btn" style="background: linear-gradient(135deg, #1a1f0a 0%, #2e3515 100%); color: #e8f0d1;" title="زيتوني">
+                  🟢
+                </button>
+                <button onclick="changeTheme('royal-blue')" class="theme-preview-btn" style="background: linear-gradient(135deg, #0c1445 0%, #162270 100%); color: #d6e4ff;" title="أزرق ملكي">
+                  🔴
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">مجموعة الألوان الرئيسية</label>
+              <select class="form-select" id="colorSchemeSelect" onchange="previewColorScheme(this.value)">
+                <option value="default">افتراضي (بنفسجي وردي)</option>
+                <option value="blue">أزرق عصري 💙</option>
+                <option value="green">أخضر طبيعي 💚</option>
+                <option value="orange">برتقالي دافئ 🧡</option>
+                <option value="red">أحمر ناري ❤️</option>
+                <option value="purple">بنفسجي ملكي 💜</option>
+                <option value="cyan">سماوي منعش 🩵</option>
+                <option value="amber">كهرماني ذهبي 🟡</option>
+                <option value="teal">تركواز هادئ 🔵</option>
+              </select>
+              <small style="color: var(--theme-text-secondary); margin-top: 0.5rem; display: block;">
+                اختر مجموعة الألوان المفضلة لديك - سيتم تطبيقها على جميع عناصر التطبيق
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">تخصيص الألوان المتقدمة</label>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
+                
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-palette"></i> اللون الرئيسي
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="primaryColorPicker" value="#6366f1" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="primaryColorInput" value="#6366f1" class="form-input" style="flex: 1;" placeholder="#6366f1">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-palette"></i> اللون الثانوي
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="secondaryColorPicker" value="#8b5cf6" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="secondaryColorInput" value="#8b5cf6" class="form-input" style="flex: 1;" placeholder="#8b5cf6">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-check-circle"></i> لون النجاح
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="successColorPicker" value="#10b981" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="successColorInput" value="#10b981" class="form-input" style="flex: 1;" placeholder="#10b981">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-exclamation-triangle"></i> لون التحذير
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="warningColorPicker" value="#f59e0b" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="warningColorInput" value="#f59e0b" class="form-input" style="flex: 1;" placeholder="#f59e0b">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-times-circle"></i> لون الخطر
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="dangerColorPicker" value="#ef4444" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="dangerColorInput" value="#ef4444" class="form-input" style="flex: 1;" placeholder="#ef4444">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.875rem; color: var(--theme-text-secondary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-info-circle"></i> لون المعلومات
+                  </label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="infoColorPicker" value="#3b82f6" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                    <input type="text" id="infoColorInput" value="#3b82f6" class="form-input" style="flex: 1;" placeholder="#3b82f6">
+                  </div>
+                </div>
+
+              </div>
+              <button class="btn btn-secondary" onclick="resetDefaultColors()" style="margin-top: 1rem;">
+                <i class="fas fa-undo"></i> استعادة الألوان الافتراضية
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">حجم الخط</label>
+              <select class="form-select" id="fontSizeSelect">
+                <option value="small">صغير</option>
+                <option value="medium" selected>متوسط</option>
+                <option value="large">كبير</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="compactModeCheck" style="width: auto;">
+                <span>تفعيل الوضع المدمج (عرض أكثر كثافة)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- إعدادات اللغة والتنسيق -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-language"></i> اللغة والتنسيق
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">لغة التطبيق</label>
+              <select class="form-select" id="languageSelect">
+                <option value="ar">العربية 🇮🇶</option>
+                <option value="en">English 🇬🇧</option>
+                <option value="ku">كوردی 🏴</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">تنسيق التاريخ</label>
+              <select class="form-select" id="dateFormatSelect">
+                <option value="DD/MM/YYYY">يوم/شهر/سنة</option>
+                <option value="MM/DD/YYYY">شهر/يوم/سنة</option>
+                <option value="YYYY-MM-DD">سنة-شهر-يوم</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">تنسيق الوقت</label>
+              <select class="form-select" id="timeFormatSelect">
+                <option value="12">12 ساعة (AM/PM)</option>
+                <option value="24">24 ساعة</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- إعدادات الأداء -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-tachometer-alt"></i> إعدادات الأداء
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">عدد العناصر في الصفحة</label>
+              <select class="form-select" id="itemsPerPageSelect">
+                <option value="10">10 عناصر</option>
+                <option value="25" selected>25 عنصر</option>
+                <option value="50">50 عنصر</option>
+                <option value="100">100 عنصر</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="animationsCheck" checked style="width: auto;">
+                <span>تفعيل التأثيرات المتحركة</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="autosaveCheck" checked style="width: auto;">
+                <span>الحفظ التلقائي كل 5 دقائق</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- إعدادات نقطة البيع -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-cash-register"></i> إعدادات نقطة البيع
+            </h3>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="barcodeSound" checked style="width: auto;">
+                <span>تشغيل صوت عند مسح الباركود</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="autoPrint" style="width: auto;">
+                <span>طباعة الفاتورة تلقائياً بعد البيع</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="clearCartAfterSale" checked style="width: auto;">
+                <span>مسح السلة تلقائياً بعد البيع</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" onclick="saveSystemSettings()">
+              <i class="fas fa-save"></i> حفظ جميع الإعدادات
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('settings')">
+              <i class="fas fa-times"></i> إلغاء
+            </button>
+          </div>
+
+        </div>
+      </div>
+     </div>
+
+     <!-- صفحة النسخ الاحتياطية -->
+     <div id="settings-backup" class="page" style="display: none;">
+      <div class="section-header">
+       <button class="btn btn-secondary" onclick="showPage('settings')" style="margin-left: 1rem;">
+         <i class="fas fa-arrow-right"></i> رجوع
+       </button>
+       <div class="section-title"><i class="fas fa-database"></i> النسخ الاحتياطية</div>
+      </div>
+
+      <div class="settings-full-width">
+        <div class="settings-content-wrapper">
+          
+          <!-- إنشاء نسخة احتياطية -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-download"></i> إنشاء نسخة احتياطية
+            </h3>
+
+            <div style="background: rgba(34, 197, 94, 0.1); border-right: 4px solid #22c55e; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+              <h4 style="color: #22c55e; margin-bottom: 0.5rem;">
+                <i class="fas fa-info-circle"></i> نصيحة مهمة
+              </h4>
+              <p style="color: var(--theme-text-secondary); line-height: 1.6;">
+                قم بإنشاء نسخة احتياطية بشكل دوري (يومياً أو أسبوعياً) للحفاظ على بياناتك آمنة.
+              </p>
+            </div>
+
+                        <div style="display: grid; gap: 1rem;">
+                            <button class="btn btn-success" onclick="systemExportBackup('full')" style="padding: 1.5rem; font-size: 1.1rem;">
+                                <i class="fas fa-download"></i> إنشاء نسخة احتياطية كاملة
+                            </button>
+
+                            <button class="btn" style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 1.5rem;" onclick="systemExportBackup('selective')">
+                                <i class="fas fa-database"></i> نسخ البيانات فقط (منتجات، فواتير، ديون)
+                            </button>
+                        </div>
+          </div>
+
+          <!-- استعادة نسخة احتياطية -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-upload"></i> استعادة نسخة احتياطية
+            </h3>
+
+            <div style="background: rgba(251, 191, 36, 0.1); border-right: 4px solid #fbbf24; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+              <h4 style="color: #fbbf24; margin-bottom: 0.5rem;">
+                <i class="fas fa-exclamation-triangle"></i> تحذير
+              </h4>
+              <p style="color: var(--theme-text-secondary); line-height: 1.6;">
+                استعادة نسخة احتياطية سيؤدي إلى استبدال جميع البيانات الحالية. تأكد من إنشاء نسخة احتياطية قبل الاستعادة.
+              </p>
+            </div>
+
+            <input type="file" id="backupFileInput" accept=".json" style="display: none;" onchange="handleBackupRestore(event)">
+            
+            <button class="btn btn-warning" onclick="document.getElementById('backupFileInput').click()" style="width: 100%; padding: 1.5rem; font-size: 1.1rem;">
+              <i class="fas fa-upload"></i> اختيار ملف النسخة الاحتياطية
+            </button>
+          </div>
+
+          <!-- النسخ الاحتياطي التلقائي -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-clock"></i> النسخ الاحتياطي التلقائي
+            </h3>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="autoBackupEnabled" style="width: auto;">
+                <span>تفعيل النسخ الاحتياطي التلقائي</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">تكرار النسخ الاحتياطي</label>
+              <select class="form-select" id="autoBackupFrequency">
+                <option value="daily">يومياً</option>
+                <option value="weekly">أسبوعياً</option>
+                <option value="monthly">شهرياً</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">موقع حفظ النسخ</label>
+              <div style="display: flex; gap: 1rem;">
+                <input type="text" class="form-input" id="backupLocation" readonly value="المجلد الافتراضي">
+                <button class="btn btn-secondary" onclick="chooseBackupLocation()">
+                  <i class="fas fa-folder-open"></i> تغيير
+                </button>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="saveBackupSettings()">
+              <i class="fas fa-save"></i> حفظ إعدادات النسخ الاحتياطي
+            </button>
+          </div>
+
+          <!-- إعادة ضبط المصنع -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-exclamation-circle"></i> إعادة ضبط المصنع
+            </h3>
+
+            <div style="background: rgba(239, 68, 68, 0.1); border-right: 4px solid #ef4444; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+              <h4 style="color: #ef4444; margin-bottom: 0.5rem;">
+                <i class="fas fa-skull-crossbones"></i> خطر - عملية غير قابلة للتراجع
+              </h4>
+              <p style="color: var(--theme-text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                هذه العملية ستحذف جميع البيانات والإعدادات وتعيد التطبيق لحالته الأولى. 
+                لا يمكن التراجع عن هذه العملية بعد تنفيذها!
+              </p>
+              <ul style="color: var(--theme-text-secondary); line-height: 1.8; margin-right: 1.5rem;">
+                <li>🗑️ حذف جميع المنتجات والفئات</li>
+                <li>🗑️ حذف جميع الموردين والعملاء</li>
+                <li>🗑️ حذف جميع المبيعات والفواتير</li>
+                <li>🗑️ حذف جميع الديون والأقساط</li>
+                <li>🗑️ حذف جميع الإعدادات والتخصيصات</li>
+                <li>🗑️ مسح قواعد البيانات بالكامل</li>
+              </ul>
+            </div>
+
+            <div style="display: grid; gap: 1rem;">
+              <button class="btn btn-warning" onclick="clearSampleData()" style="padding: 1rem; font-size: 1rem;">
+                <i class="fas fa-broom"></i> مسح البيانات التجريبية فقط
+              </button>
+              
+              <button class="btn btn-danger" onclick="confirmFactoryReset()" style="padding: 1.5rem; font-size: 1.1rem;">
+                <i class="fas fa-trash-alt"></i> إعادة ضبط المصنع الكاملة (حذف كل شيء)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+     </div>
+
+     <!-- صفحة حساب المستخدم -->
+     <div id="settings-account" class="page" style="display: none;">
+      <div class="section-header">
+       <button class="btn btn-secondary" onclick="showPage('settings')" style="margin-left: 1rem;">
+         <i class="fas fa-arrow-right"></i> رجوع
+       </button>
+       <div class="section-title"><i class="fas fa-user-circle"></i> حساب المستخدم</div>
+      </div>
+
+      <div class="settings-full-width">
+        <div class="settings-content-wrapper">
+        
+        <!-- معلومات الشركة -->
+        <div class="settings-section">
+          <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+            <span style="width: 4px; height: 28px; background: var(--primary-gradient); border-radius: 2px;"></span>
+            <i class="fas fa-building"></i>
+            معلومات الشركة
+          </h3>
+          
+          <div style="background: linear-gradient(135deg, var(--theme-bg-secondary) 0%, var(--theme-bg-hover) 100%); border-radius: 20px; padding: 2.5rem; border: 2px solid rgba(102, 126, 234, 0.2); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);">
+            
+            <!-- شعار الشركة -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);">
+                <i class="fas fa-building" style="font-size: 3rem; color: white;"></i>
+              </div>
+              <h2 style="font-size: 2rem; font-weight: 700; color: var(--theme-text-primary); margin: 0 0 0.5rem 0;">
+                الإبداع الرقمي
+              </h2>
+              <p style="font-size: 1.1rem; color: var(--theme-text-secondary); margin: 0;">
+                Digital Innovation Company
+              </p>
+            </div>
+
+            <!-- معلومات الاتصال -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                  <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-phone" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.25rem 0;">رقم الهاتف</p>
+                    <p style="font-size: 1.25rem; font-weight: 600; color: var(--theme-text-primary); margin: 0; direction: ltr; text-align: right;">07813798636</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                  <div style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-whatsapp" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.25rem 0;">واتساب</p>
+                    <a href="https://wa.me/9647813798636?text=مرحباً، أحتاج إلى تجديد اشتراكي في نظام الكاشير" target="_blank" style="font-size: 1.25rem; font-weight: 600; color: #25D366; margin: 0; direction: ltr; text-align: right; text-decoration: none; display: block;">
+                      +964 781 379 8636
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- زر التواصل -->
+            <div style="margin-top: 2rem;">
+              <a href="https://wa.me/9647813798636?text=مرحباً، أحتاج إلى تجديد اشتراكي في نظام الكاشير" target="_blank" class="btn btn-primary" style="width: 100%; padding: 1.25rem; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border: none;">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                <span>تواصل معنا عبر الواتساب</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- معلومات المستخدم والحساب -->
+        <div style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+            <span style="width: 4px; height: 28px; background: var(--primary-gradient); border-radius: 2px;"></span>
+            <i class="fas fa-user"></i>
+            معلومات الحساب
+          </h3>
+          
+          <div style="background: linear-gradient(135deg, var(--theme-bg-secondary) 0%, var(--theme-bg-hover) 100%); border-radius: 20px; padding: 2.5rem; border: 2px solid rgba(102, 126, 234, 0.2); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+              
+              <!-- رقم التعريف -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-fingerprint" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">معرف المستخدم (UID)</p>
+                    <p id="accountUserUID" style="font-size: 0.95rem; font-weight: 600; color: var(--theme-text-primary); margin: 0; font-family: 'Courier New', monospace; overflow: hidden; text-overflow: ellipsis;">
+                      جاري التحميل...
+                    </p>
+                  </div>
+                  <button onclick="copyToClipboard(document.getElementById('accountUserUID').textContent)" class="btn btn-sm" style="padding: 0.5rem; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.3);" title="نسخ">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- الرمز السري -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-key" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">الرمز السري</p>
+                    <p id="accountUserSecret" style="font-size: 1.1rem; font-weight: 600; color: var(--theme-text-primary); margin: 0; font-family: 'Courier New', monospace; letter-spacing: 2px;">
+                      **********
+                    </p>
+                  </div>
+                  <button onclick="copyToClipboard(document.getElementById('accountUserSecret').getAttribute('data-secret'))" class="btn btn-sm" style="padding: 0.5rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.3);" title="نسخ">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- تاريخ إنشاء الحساب -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-calendar-alt" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">تاريخ التسجيل</p>
+                    <p id="accountCreatedDate" style="font-size: 1rem; font-weight: 600; color: var(--theme-text-primary); margin: 0;">
+                      --/--/----
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- المنصة -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="fas fa-desktop" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">المنصة</p>
+                    <p id="accountPlatform" style="font-size: 1rem; font-weight: 600; color: var(--theme-text-primary); margin: 0;">
+                      Windows
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- تنبيه -->
+            <div style="margin-top: 2rem; padding: 1.25rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; display: flex; align-items: start; gap: 1rem;">
+              <i class="fas fa-info-circle" style="color: #f59e0b; font-size: 1.25rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+              <div>
+                <p style="font-weight: 600; color: var(--theme-text-primary); margin: 0 0 0.5rem 0;">
+                  <i class="fas fa-lock"></i> معلومات مهمة
+                </p>
+                <p style="font-size: 0.95rem; color: var(--theme-text-secondary); margin: 0; line-height: 1.6;">
+                  احتفظ بمعرف المستخدم (UID) والرمز السري في مكان آمن. ستحتاجهما لتسجيل الدخول من جهاز آخر أو عند إعادة تثبيت التطبيق.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- معلومات الاشتراك -->
+        <div style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--theme-text-primary); display: flex; align-items: center; gap: 0.75rem;">
+            <span style="width: 4px; height: 28px; background: var(--primary-gradient); border-radius: 2px;"></span>
+            <i class="fas fa-crown"></i>
+            حالة الاشتراك
+          </h3>
+          
+          <div style="background: linear-gradient(135deg, var(--theme-bg-secondary) 0%, var(--theme-bg-hover) 100%); border-radius: 20px; padding: 2.5rem; border: 2px solid rgba(102, 126, 234, 0.2); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+              
+              <!-- نوع الاشتراك -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-star" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">نوع الاشتراك</p>
+                    <p id="accountSubscriptionType" style="font-size: 1.1rem; font-weight: 700; color: #f59e0b; margin: 0;">
+                      تجريبي
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- الأيام المتبقية -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div id="accountDaysIcon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-clock" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">المتبقي</p>
+                    <p id="accountDaysLeft" style="font-size: 1.5rem; font-weight: 700; color: #10b981; margin: 0;">
+                      30 يوم
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- تاريخ البداية -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-calendar-check" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">تاريخ البداية</p>
+                    <p id="accountStartDate" style="font-size: 1rem; font-weight: 600; color: var(--theme-text-primary); margin: 0;">
+                      --/--/----
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- تاريخ الانتهاء -->
+              <div style="background: var(--theme-bg-tertiary); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(102, 126, 234, 0.1);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-calendar-times" style="font-size: 1.25rem; color: white;"></i>
+                  </div>
+                  <div>
+                    <p style="font-size: 0.875rem; color: var(--theme-text-secondary); margin: 0 0 0.5rem 0;">تاريخ الانتهاء</p>
+                    <p id="accountEndDate" style="font-size: 1rem; font-weight: 600; color: var(--theme-text-primary); margin: 0;">
+                      --/--/----
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- شريط التقدم -->
+            <div style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <span style="font-size: 0.875rem; color: var(--theme-text-secondary);">مدة الاشتراك المستخدمة</span>
+                <span id="accountProgressPercent" style="font-size: 0.875rem; font-weight: 600; color: var(--theme-text-primary);">0%</span>
+              </div>
+              <div style="background: var(--theme-bg-tertiary); border-radius: 10px; height: 12px; overflow: hidden;">
+                <div id="accountProgressBar" style="background: linear-gradient(90deg, #10b981 0%, #059669 100%); height: 100%; width: 0%; transition: all 0.5s ease; border-radius: 10px;"></div>
+              </div>
+            </div>
+
+            <!-- زر التجديد -->
+            <button onclick="showActivationModal()" class="btn btn-primary" style="width: 100%; padding: 1.25rem; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+              <i class="fas fa-sync-alt"></i>
+              <span>تجديد الاشتراك</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+     </div>
+
+
+     <!-- صفحة إعدادات الطباعة -->
+     <div id="settings-printing" class="page" style="display: none;">
+      <div class="section-header">
+       <button class="btn btn-secondary" onclick="showPage('settings')" style="margin-left: 1rem;">
+         <i class="fas fa-arrow-right"></i> رجوع
+       </button>
+       <div class="section-title"><i class="fas fa-print"></i> إعدادات الطباعة</div>
+      </div>
+
+      <div class="settings-full-width">
+        <div class="settings-content-wrapper">
+          
+          <!-- إعدادات الطابعة -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-print"></i> الطابعة الافتراضية
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">اختيار الطابعة</label>
+              <select class="form-select" id="defaultPrinterSelect">
+                <option value="">الطابعة الافتراضية للنظام</option>
+                <option value="printer1">Thermal Printer POS-80</option>
+                <option value="printer2">HP LaserJet Pro</option>
+              </select>
+              <button class="btn btn-secondary" onclick="refreshPrinters()" style="margin-top: 0.5rem;">
+                <i class="fas fa-sync"></i> تحديث قائمة الطابعات
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">حجم الورقة</label>
+              <select class="form-select" id="paperSizeSelect">
+                <option value="58mm">58mm (Thermal)</option>
+                <option value="80mm" selected>80mm (Thermal)</option>
+                <option value="A4">A4</option>
+                <option value="A5">A5</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- تصميم الفاتورة -->
+          <div class="settings-section">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-receipt"></i> تصميم الفاتورة
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">حجم خط الفاتورة</label>
+              <select class="form-select" id="invoiceFontSize">
+                <option value="small">صغير (10px)</option>
+                <option value="medium" selected>متوسط (12px)</option>
+                <option value="large">كبير (14px)</option>
+                <option value="xlarge">كبير جداً (16px)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="showLogoOnInvoice" checked style="width: auto;">
+                <span>إظهار شعار المتجر على الفاتورة</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="showBarcodeOnInvoice" checked style="width: auto;">
+                <span>إظهار باركود الفاتورة</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="showTaxOnInvoice" checked style="width: auto;">
+                <span>إظهار الضريبة على الفاتورة</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">ملاحظة في نهاية الفاتورة</label>
+              <textarea class="form-input" id="invoiceFooterNote" rows="3" placeholder="شكراً لزيارتكم - نتمنى لكم يوماً سعيداً"></textarea>
+            </div>
+          </div>
+
+          <!-- إعدادات الطباعة التلقائية -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+              <i class="fas fa-magic"></i> الطباعة التلقائية
+            </h3>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="autoPrintInvoice" style="width: auto;">
+                <span>طباعة الفاتورة تلقائياً بعد كل عملية بيع</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="printCopies" style="width: auto;">
+                <span>طباعة نسختين (نسخة للعميل ونسخة للأرشيف)</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="openCashDrawer" style="width: auto;">
+                <span>فتح درج النقود تلقائياً بعد البيع</span>
+              </label>
+            </div>
+
+            <button class="btn" style="background: linear-gradient(135deg, #667eea, #764ba2); width: 100%; padding: 1.2rem; margin-top: 1rem;" onclick="printTestPage()">
+              <i class="fas fa-file-pdf"></i> طباعة صفحة تجريبية
+            </button>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" onclick="savePrintingSettings()">
+              <i class="fas fa-save"></i> حفظ جميع الإعدادات
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('settings')">
+              <i class="fas fa-times"></i> إلغاء
+            </button>
+          </div>
+
+        </div>

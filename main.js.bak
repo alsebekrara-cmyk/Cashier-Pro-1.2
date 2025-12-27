@@ -376,7 +376,7 @@ function createMainWindow() {
         fullscreenable: true
     });
 
-    mainWindow.loadFile('index-full.html');
+    mainWindow.loadFile('index.html');
 
     mainWindow.once('ready-to-show', () => {
         if (splashWindow && !splashWindow.isDestroyed()) {

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام نقاط البيع المتقدم - شركة الإبداع الرقمي</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,327 +17,49 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/enhanced-modals.css">
     
     <!-- Element SDK -->
     <script src="_sdk/element_sdk.js"></script>
     <script src="_sdk/data_sdk.js"></script>
-</head>
-<body data-theme="light">
-    <!-- شاشة التحميل -->
-    <div class="splash-screen">
-        <div class="splash-content">
-            <img src="assets/yaqoub_logo.png" alt="Logo" class="splash-logo" onerror="this.style.display='none'">
-            <h1>نظام نقاط البيع المتقدم</h1>
-            <p>شركة الإبداع الرقمي</p>
-            <div class="spinner"></div>
-        </div>
-    </div>
-
-    <!-- حاوية Toast للإشعارات -->
-    <div id="toastContainer" class="toast-container"></div>
-
-    <!-- الهيكل الرئيسي -->
-    <div class="app-container">
-        <!-- الشريط الجانبي -->
-        <nav class="sidebar" id="sidebar">
-            <button class="sidebar-toggle" id="sidebarToggle">
-                <i class="fas fa-angle-double-right"></i>
-            </button>
-
-            <!-- شعار الشركة -->
-            <div class="sidebar-header">
-                <div class="logo">
-                    <img src="assets/yaqoub_logo.png" alt="Logo" onerror="this.style.display='none'">
-                    <h1>نظام نقاط البيع</h1>
-                    <p>Digital Creativity</p>
-                </div>
-            </div>
-
-            <!-- قائمة التنقل -->
-            <div class="nav-menu">
-                <!-- قسم المبيعات -->
-                <div class="nav-section">
-                    <h3 class="nav-section-title">المبيعات</h3>
-                    <div class="nav-item" id="posNavItem">
-                        <a class="nav-link active" onclick="showPage('pos')">
-                            <i class="fas fa-cash-register nav-icon"></i>
-                            <span class="nav-text">نقطة البيع</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="invoicesNavItem">
-                        <a class="nav-link" onclick="showPage('invoices')">
-                            <i class="fas fa-receipt nav-icon"></i>
-                            <span class="nav-text">الفواتير</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="receiptsManagementNavItem">
-                        <a class="nav-link" onclick="showPage('receiptsManagement')">
-                            <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                            <span class="nav-text">إدارة الإيصالات</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- قسم المخزون -->
-                <div class="nav-section">
-                    <h3 class="nav-section-title">المخزون</h3>
-                    <div class="nav-item" id="productsNavItem">
-                        <a class="nav-link" onclick="showPage('products')">
-                            <i class="fas fa-boxes nav-icon"></i>
-                            <span class="nav-text">إدارة المنتجات</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="inventoryNavItem">
-                        <a class="nav-link" onclick="showPage('inventory')">
-                            <i class="fas fa-warehouse nav-icon"></i>
-                            <span class="nav-text">إدارة المخزن</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- قسم المالية -->
-                <div class="nav-section">
-                    <h3 class="nav-section-title">المالية</h3>
-                    <div class="nav-item" id="debtsNavItem">
-                        <a class="nav-link" onclick="showPage('debts')">
-                            <i class="fas fa-credit-card nav-icon"></i>
-                            <span class="nav-text">إدارة الديون</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="paymentsNavItem">
-                        <a class="nav-link" onclick="showPage('payments')">
-                            <i class="fas fa-hand-holding-usd nav-icon"></i>
-                            <span class="nav-text">التسديدات</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="expensesNavItem">
-                        <a class="nav-link" onclick="showPage('expenses')">
-                            <i class="fas fa-money-bill-wave nav-icon"></i>
-                            <span class="nav-text">إدارة المصاريف</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- قسم النظام -->
-                <div class="nav-section">
-                    <h3 class="nav-section-title">النظام</h3>
-                    <div class="nav-item" id="reportsNavItem">
-                        <a class="nav-link" onclick="openReportsModal()">
-                            <i class="fas fa-chart-bar nav-icon"></i>
-                            <span class="nav-text">التقارير</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="printerNavItem">
-                        <a class="nav-link" onclick="showPage('printer')">
-                            <i class="fas fa-print nav-icon"></i>
-                            <span class="nav-text">إدارة الطابعة</span>
-                        </a>
-                    </div>
-                    <div class="nav-item" id="settingsNavItem">
-                        <a class="nav-link" onclick="showPage('settings')">
-                            <i class="fas fa-cog nav-icon"></i>
-                            <span class="nav-text">الإعدادات العامة</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- المحتوى الرئيسي -->
-        <div class="page-content">
-            <!-- صفحة نقطة البيع -->
-            <div id="pos" class="page active">
-                <div class="page-header">
-                    <h2><i class="fas fa-cash-register"></i> نقطة البيع</h2>
-                </div>
-                <div class="page-body">
-                    <div class="pos-container">
-                        <!-- قائمة المنتجات -->
-                        <div class="pos-products-section">
-                            <div class="search-box">
-                                <input type="text" id="posSearchInput" placeholder="ابحث عن منتج..." class="search-input">
-                            </div>
-                            <div id="posProductsList" class="products-grid"></div>
-                        </div>
-                        
-                        <!-- سلة المشتريات -->
-                        <div class="pos-cart-section">
-                            <h3>سلة المشتريات</h3>
-                            <div id="posCartItems" class="cart-items"></div>
-                            <div class="cart-total">
-                                <span>الإجمالي:</span>
-                                <span id="posCartTotal">0 د.ع</span>
-                            </div>
-                            <div class="cart-actions">
-                                <button id="posClearCartBtn" class="btn btn-secondary">مسح السلة</button>
-                                <button id="posCheckoutBtn" class="btn btn-success">إتمام البيع</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- صفحة الفواتير -->
-            <div id="invoices" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-receipt"></i> الفواتير</h2>
-                </div>
-                <div class="page-body">
-                    <div id="invoicesList"></div>
-                </div>
-            </div>
-
-            <!-- صفحة إدارة الإيصالات -->
-            <div id="receiptsManagement" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-file-invoice-dollar"></i> إدارة الإيصالات</h2>
-                </div>
-                <div class="page-body">
-                    <p>صفحة إدارة الإيصالات قيد التطوير...</p>
-                </div>
-            </div>
-
-            <!-- صفحة المنتجات -->
-            <div id="products" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-boxes"></i> إدارة المنتجات</h2>
-                    <button id="addProductBtn" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> إضافة منتج
-                    </button>
-                </div>
-                <div class="page-body">
-                    <div id="productsList"></div>
-                </div>
-            </div>
-
-            <!-- صفحة المخزن -->
-            <div id="inventory" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-warehouse"></i> إدارة المخزن</h2>
-                </div>
-                <div class="page-body">
-                    <p>صفحة إدارة المخزن قيد التطوير...</p>
-                </div>
-            </div>
-
-            <!-- صفحة الديون -->
-            <div id="debts" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-credit-card"></i> إدارة الديون</h2>
-                </div>
-                <div class="page-body">
-                    <div id="debtsList"></div>
-                </div>
-            </div>
-
-            <!-- صفحة التسديدات -->
-            <div id="payments" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-hand-holding-usd"></i> التسديدات</h2>
-                </div>
-                <div class="page-body">
-                    <p>صفحة التسديدات قيد التطوير...</p>
-                </div>
-            </div>
-
-            <!-- صفحة المصاريف -->
-            <div id="expenses" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-money-bill-wave"></i> إدارة المصاريف</h2>
-                </div>
-                <div class="page-body">
-                    <p>صفحة إدارة المصاريف قيد التطوير...</p>
-                </div>
-            </div>
-
-            <!-- صفحة الطابعة -->
-            <div id="printer" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-print"></i> إدارة الطابعة</h2>
-                </div>
-                <div class="page-body">
-                    <p>صفحة إدارة الطابعة قيد التطوير...</p>
-                </div>
-            </div>
-
-            <!-- صفحة الإعدادات -->
-            <div id="settings" class="page">
-                <div class="page-header">
-                    <h2><i class="fas fa-cog"></i> الإعدادات العامة</h2>
-                </div>
-                <div class="page-body">
-                    <div class="settings-container">
-                        <div class="settings-section">
-                            <h3>معلومات المتجر</h3>
-                            <div class="form-group">
-                                <label>اسم المتجر</label>
-                                <input type="text" id="storeName" class="form-input">
-                            </div>
-                            <div class="form-group">
-                                <label>عنوان المتجر</label>
-                                <input type="text" id="storeAddress" class="form-input">
-                            </div>
-                            <div class="form-group">
-                                <label>رقم الهاتف</label>
-                                <input type="text" id="storePhone" class="form-input">
-                            </div>
-                        </div>
-                        
-                        <div class="settings-section">
-                            <h3>المظهر</h3>
-                            <button id="themeToggle" class="btn btn-secondary">
-                                <i class="fas fa-moon"></i> تبديل المظهر
-                            </button>
-                        </div>
-                        
-                        <button id="saveSettingsBtn" class="btn btn-success">
-                            <i class="fas fa-save"></i> حفظ الإعدادات
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
+    
     <!-- Firebase Config -->
     <script src="firebase-config.js"></script>
     
-    <!-- Core Scripts -->
-    <script src="core/utils.js"></script>
-    <script src="core/page-manager.js"></script>
-    <script src="core/app.js"></script>
+    <!-- Main Functions (من بداية الملف الأصلي) -->
+    <script src="core/main-functions.js"></script>
     
-    <!-- Page Scripts -->
-    <script src="pages/pos.js"></script>
-    <script src="pages/invoices.js"></script>
-    <script src="pages/receipts.js"></script>
-    <script src="pages/products.js"></script>
-    <script src="pages/inventory.js"></script>
-    <script src="pages/debts.js"></script>
-    <script src="pages/payments.js"></script>
-    <script src="pages/expenses.js"></script>
-    <script src="pages/printer.js"></script>
-    <script src="pages/settings.js"></script>
+    <!-- Main CSS (مستخرج من الملف الأصلي) -->
+    <link rel="stylesheet" href="styles/main-extracted.css">
+</head>
+<body>
+    <!-- HTML Content (مستخرج من الملف الأصلي) -->
+    <div id="app">
+        <!-- سيتم تحميل المحتوى من index-body.html -->
+        <script>
+            // تحميل محتوى HTML
+            fetch('index-body.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('app').innerHTML = html;
+                    
+                    // تحميل منطق التطبيق بعد تحميل HTML
+                    const script = document.createElement('script');
+                    script.src = 'core/app-logic.js';
+                    document.body.appendChild(script);
+                })
+                .catch(error => {
+                    console.error('خطأ في تحميل المحتوى:', error);
+                    document.getElementById('app').innerHTML = '<h1 style="text-align:center;margin-top:100px;">خطأ في تحميل التطبيق</h1>';
+                });
+        </script>
+    </div>
     
-    <!-- Additional Features -->
+    <!-- Additional Systems -->
     <script src="reports-system.js"></script>
     <script src="expenses-system.js"></script>
     <script src="yaqoub-print-templates.js"></script>
     <script src="products-fixes.js"></script>
     <script src="payments-page-update.js"></script>
-    
-    <!-- Helper Function for Reports -->
-    <script>
-        function openReportsModal() {
-            if (typeof window.reportsManager !== 'undefined' && window.reportsManager.openReportsModal) {
-                window.reportsManager.openReportsModal();
-            } else {
-                showToast('تعذر تحميل نظام التقارير', 'error');
-            }
-        }
-    </script>
 </body>
 </html>
