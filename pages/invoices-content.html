@@ -1,0 +1,168 @@
+
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-receipt"></i> إدارة الفواتير
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="invoicesSearchInput" class="pos-search-input" placeholder="ابحث في الفواتير..." onkeyup="filterInvoices()">
+       </div>
+       <div class="export-import-buttons">
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'json')" data-permission="reports_export"> <i class="fas fa-download"></i> JSON </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'excel')" data-permission="reports_export"> <i class="fas fa-file-excel"></i> Excel </button> 
+           <button class="export-btn" onclick="if(window.securityManager.checkPermission('reports_export')) exportData('invoices', 'pdf')" data-permission="reports_export"> <i class="fas fa-file-pdf"></i> PDF </button> 
+           <input type="file" id="importInvoicesFile" accept=".json,.xlsx,.csv" style="display: none;" onchange="importData('invoices')"> 
+           <button class="import-btn" onclick="document.getElementById('importInvoicesFile').click()" data-permission="settings_restore" style="display: none;"> <i class="fas fa-upload"></i> استيراد </button>
+       </div>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-receipt"></i>
+        </div>
+        <div class="stat-value" id="totalInvoices">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الفواتير
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-value" id="totalSales">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي المبيعات
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-day"></i>
+        </div>
+        <div class="stat-value" id="todaySales">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات اليوم
+        </div>
+       </div>
+      </div>
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-hashtag"></i> رقم الفاتورة</th>
+          <th><i class="fas fa-calendar"></i> التاريخ</th>
+          <th><i class="fas fa-user"></i> العميل</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ</th>
+          <th><i class="fas fa-credit-card"></i> طريقة الدفع</th>
+          <th><i class="fas fa-user-tag"></i> المستخدم</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="invoicesTableBody"><!-- الفواتير ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     </div><!-- صفحة إدارة الديون -->
+     
+     <!-- ✅ صفحة إدارة الإيصالات -->
+     <div id="receiptsManagement" class="page">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+       <div class="section-title"><i class="fas fa-file-invoice-dollar"></i> إدارة الإيصالات
+       </div>
+       <div class="pos-search-box">
+           <i class="fas fa-search"></i>
+           <input type="text" id="receiptsSearchInput" class="pos-search-input" placeholder="ابحث في الإيصالات..." onkeyup="filterReceipts()">
+       </div>
+       <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <div class="export-import-buttons">
+            <button class="export-btn" onclick="exportData('receipts', 'json')"> <i class="fas fa-download"></i> JSON </button> 
+            <button class="export-btn" onclick="exportData('receipts', 'excel')"> <i class="fas fa-file-excel"></i> Excel </button> 
+            <button class="export-btn" onclick="exportData('receipts', 'pdf')"> <i class="fas fa-file-pdf"></i> PDF </button> 
+        </div>
+        <select id="receiptsDateFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع التواريخ</option>
+          <option value="today">اليوم</option>
+          <option value="yesterday">الأمس</option>
+          <option value="thisWeek">هذا الأسبوع</option>
+          <option value="thisMonth">هذا الشهر</option>
+          <option value="custom">تاريخ مخصص</option>
+        </select>
+        <select id="receiptsTypeFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع الأنواع</option>
+          <option value="نقدي">نقدي</option>
+          <option value="أقساط">أقساط</option>
+        </select>
+        <select id="receiptsUserFilter" class="filter-select" onchange="filterReceipts()">
+          <option value="all">جميع المستخدمين</option>
+        </select>
+        <button class="btn btn-primary" onclick="mergeReceipts()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+          <i class="fas fa-compress-alt"></i> دمج إيصالات اليوم
+        </button>
+       </div>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 1.5rem;">
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-file-invoice"></i>
+        </div>
+        <div class="stat-value" id="totalReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         إجمالي الإيصالات
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"><i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-value" id="totalCashReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات نقدي
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="stat-value" id="totalInstallmentReceipts">
+         0
+        </div>
+        <div class="stat-label">
+         مبيعات أقساط
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 90%, #2BFF88 100%);"><i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="stat-value" id="totalReceiptsAmount">
+         0
+        </div>
+        <div class="stat-label">
+         الدخل الإجمالي
+        </div>
+       </div>
+      </div>
+      
+      <div class="table-container">
+       <table class="table">
+        <thead>
+         <tr>
+          <th><i class="fas fa-hashtag"></i> رقم الإيصال</th>
+          <th><i class="fas fa-calendar"></i> التاريخ</th>
+          <th><i class="fas fa-clock"></i> الوقت</th>
+          <th><i class="fas fa-user"></i> العميل</th>
+          <th><i class="fas fa-money-bill"></i> المبلغ</th>
+          <th><i class="fas fa-credit-card"></i> النوع</th>
+          <th><i class="fas fa-user-tag"></i> المستخدم</th>
+          <th><i class="fas fa-layer-group"></i> مدمج</th>
+          <th><i class="fas fa-cogs"></i> الإجراءات</th>
+         </tr>
+        </thead>
+        <tbody id="receiptsTableBody"><!-- الإيصالات ستظهر هنا -->
+        </tbody>
+       </table>
+      </div>
+     
